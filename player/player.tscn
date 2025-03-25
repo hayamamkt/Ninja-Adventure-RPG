@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://b7edocifp37tp"]
+[gd_scene load_steps=28 format=3 uid="uid://b7edocifp37tp"]
 
 [ext_resource type="SpriteFrames" uid="uid://cg0kjlxfk4a5w" path="res://player/ninja_green_sprite_frames.tres" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://b4eqowyquqexw" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://b6s7tn7v8adg5" path="res://player/Shadow.png" id="2_g1dw6"]
 
 [sub_resource type="Animation" id="Animation_oul6g"]
 resource_name = "idle_down"
@@ -350,7 +351,11 @@ graph_offset = Vector2(-454.56, 0)
 motion_mode = 1
 script = ExtResource("1_rkbax")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_g1dw6")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
 sprite_frames = ExtResource("1_oul6g")
 animation = &"idle_down"
 autoplay = "idle_down"
