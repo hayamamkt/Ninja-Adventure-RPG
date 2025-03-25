@@ -1,12 +1,18 @@
 extends CharacterBody2D
 class_name Player
 
+@export var ground_tilemap: TileMapLayer
 @export var move_speed := 100.0
 
+@onready var camera_2d: Camera2D = $Camera2D
 @onready var animation_tree: AnimationTree = $AnimationTree
 
 var direction := Vector2.ZERO
 var last_facing := Vector2.ZERO
+
+func _ready() -> void:
+	_setup_camera_limits()
+
 
 func _process(_delta: float) -> void:
 	direction = Input.get_vector(
@@ -36,3 +42,12 @@ func update_animate_param() -> void:
 		animation_tree.set("parameters/conditions/attacking", true)
 	else:
 		animation_tree.set("parameters/conditions/attacking", false)
+
+func _setup_camera_limits():
+	var map_rect = ground_tilemap.get_used_rect()
+	var tile_size = ground_tilemap.rendering_quadrant_size
+	var size_pixels = map_rect.size * tile_size
+	camera_2d.limit_left = 0
+	camera_2d.limit_top = 0
+	camera_2d.limit_right = size_pixels.x
+	camera_2d.limit_bottom = size_pixels.y

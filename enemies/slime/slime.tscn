@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bg4fjvkwyp6vl"]
+
+[ext_resource type="Texture2D" uid="uid://b6s7tn7v8adg5" path="res://player/Shadow.png" id="1_j284o"]
+[ext_resource type="Texture2D" uid="uid://qqhwf3l3wy7" path="res://enemies/slime/Slime.png" id="2_6326o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57eei"]
+atlas = ExtResource("2_6326o")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u2l51"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57eei")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j284o"]
+radius = 2.0
+height = 14.0
+
+[node name="Slime" type="CharacterBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.43, 0.6485, 1, 0.780392)
+z_index = -1
+texture = ExtResource("1_j284o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_u2l51")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_j284o")
