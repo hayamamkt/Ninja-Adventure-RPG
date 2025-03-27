@@ -7,6 +7,7 @@ signal health_changed(amount: int)
 @export var ground_tilemap: TileMapLayer
 @export var move_speed := 100.0
 @export_range(1, 6, 1) var max_hp := 3
+@export var knockback_power := 800
 
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -57,9 +58,17 @@ func _setup_camera_limits():
 	camera_2d.limit_right = size_pixels.x
 	camera_2d.limit_bottom = size_pixels.y
 
+func knockback(enemy_velocity: Vector2) -> void:
+	var knockback_dir = (enemy_velocity - velocity).normalized() * knockback_power
+	velocity = knockback_dir
+	move_and_slide()
+
+#region Signals
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.name == "HitBox":
 		hp -= 1
 		if hp <= 0:
 			hp = max_hp
 		health_changed.emit(hp)
+		knockback(area.get_parent().velocity)
+#endregion
