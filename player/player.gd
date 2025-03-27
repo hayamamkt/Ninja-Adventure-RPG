@@ -3,9 +3,11 @@ class_name Player
 
 @export var ground_tilemap: TileMapLayer
 @export var move_speed := 100.0
+@export var max_hp := 3
 
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var hp: int = max_hp
 
 var direction := Vector2.ZERO
 var last_facing := Vector2.ZERO
@@ -52,11 +54,9 @@ func _setup_camera_limits():
 	camera_2d.limit_right = size_pixels.x
 	camera_2d.limit_bottom = size_pixels.y
 
-#func _handle_collision() -> void:
-	#for i in get_slide_collision_count():
-		#var collision = get_slide_collision(i)
-
-
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.name == "HitBox":
-		print_debug(area.get_parent().name)
+		hp -= 1
+		if hp <= 0:
+			hp = max_hp
+		print_debug(hp)
