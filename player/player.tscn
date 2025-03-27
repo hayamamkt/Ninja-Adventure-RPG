@@ -556,7 +556,7 @@ parameters/conditions/attacking = false
 parameters/conditions/idling = false
 parameters/conditions/walking = false
 parameters/Attack/blend_position = Vector2(0.162674, 0.0345711)
-parameters/Idle/blend_position = Vector2(-0.290251, 0.116517)
+parameters/Idle/blend_position = Vector2(-0.0397112, 0.487316)
 parameters/Walk/blend_position = Vector2(0, 0)
 
 [node name="HurtBox" parent="." instance=ExtResource("4_yw30f")]

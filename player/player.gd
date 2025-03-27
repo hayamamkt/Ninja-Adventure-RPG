@@ -1,9 +1,12 @@
 extends CharacterBody2D
 class_name Player
 
+
+signal health_changed(amount: int)
+
 @export var ground_tilemap: TileMapLayer
 @export var move_speed := 100.0
-@export var max_hp := 3
+@export_range(1, 6, 1) var max_hp := 3
 
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -59,4 +62,4 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 		hp -= 1
 		if hp <= 0:
 			hp = max_hp
-		print_debug(hp)
+		health_changed.emit(hp)
