@@ -44,11 +44,19 @@ tile_set = ExtResource("1_wt17y")
 [node name="Enemies" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Slime" parent="Enemies" instance=ExtResource("3_m8u5f")]
+[node name="Slime" parent="Enemies" node_paths=PackedStringArray("end_point") instance=ExtResource("3_m8u5f")]
 position = Vector2(467, 191)
+end_point = NodePath("Marker2D")
 
-[node name="Slime2" parent="Enemies" instance=ExtResource("3_m8u5f")]
-position = Vector2(448, 151)
+[node name="Marker2D" type="Marker2D" parent="Enemies/Slime"]
+position = Vector2(-16, -90)
+
+[node name="Slime2" parent="Enemies" node_paths=PackedStringArray("end_point") instance=ExtResource("3_m8u5f")]
+position = Vector2(490, 252)
+end_point = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="Enemies/Slime2"]
+position = Vector2(72, -2)
 
 [node name="Player" parent="." node_paths=PackedStringArray("ground_tilemap") instance=ExtResource("1_rupst")]
 position = Vector2(320, 178)

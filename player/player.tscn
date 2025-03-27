@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://b7edocifp37tp"]
+[gd_scene load_steps=44 format=3 uid="uid://b7edocifp37tp"]
 
 [ext_resource type="SpriteFrames" uid="uid://cg0kjlxfk4a5w" path="res://player/ninja_green_sprite_frames.tres" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://b4eqowyquqexw" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://b6s7tn7v8adg5" path="res://player/Shadow.png" id="2_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://d1vx3c34m0w1w" path="res://general/hurt_box.tscn" id="4_yw30f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1dw6"]
 size = Vector2(9, 4)
@@ -514,6 +515,9 @@ states/Walk/position = Vector2(651, 118.5)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_g1dw6"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_yw30f"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_qjkh3"), "Walk", "Attack", SubResource("AnimationNodeStateMachineTransition_c35mf"), "Attack", "Walk", SubResource("AnimationNodeStateMachineTransition_65viv"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_x7c3f"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_bjvpn")]
 graph_offset = Vector2(-284.1, -64.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjkh3"]
+size = Vector2(12, 14)
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 motion_mode = 1
@@ -543,6 +547,7 @@ position_smoothing_enabled = true
 libraries = {
 &"": SubResource("AnimationLibrary_8t03j")
 }
+autoplay = "idle_down"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_kqu6x")
@@ -553,3 +558,14 @@ parameters/conditions/walking = false
 parameters/Attack/blend_position = Vector2(0.162674, 0.0345711)
 parameters/Idle/blend_position = Vector2(-0.290251, 0.116517)
 parameters/Walk/blend_position = Vector2(0, 0)
+
+[node name="HurtBox" parent="." instance=ExtResource("4_yw30f")]
+collision_mask = 3
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_qjkh3")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+
+[editable path="HurtBox"]

@@ -51,3 +51,12 @@ func _setup_camera_limits():
 	camera_2d.limit_top = 0
 	camera_2d.limit_right = size_pixels.x
 	camera_2d.limit_bottom = size_pixels.y
+
+#func _handle_collision() -> void:
+	#for i in get_slide_collision_count():
+		#var collision = get_slide_collision(i)
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if area.name == "HitBox":
+		print_debug(area.get_parent().name)
