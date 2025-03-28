@@ -18,6 +18,8 @@ signal health_changed(amount: int)
 
 var direction := Vector2.ZERO
 var last_facing := Vector2.ZERO
+var is_hurt := false
+var enemy_collisions := []
 
 func _ready() -> void:
 	_setup_camera_limits()
@@ -34,6 +36,10 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	velocity = direction * move_speed
 	move_and_slide()
+
+	if not is_hurt:
+		for area in enemy_collisions:
+			hurt_by_enemy(area)
 
 func update_animate_param() -> void:
 	var idle := !velocity
@@ -67,16 +73,25 @@ func knockback(enemy_velocity: Vector2) -> void:
 	velocity = knockback_dir
 	move_and_slide()
 
+func hurt_by_enemy(area: Area2D) -> void:
+	hp -= 1
+	if hp <= 0: hp = max_hp
+
+	health_changed.emit(hp)
+	is_hurt = true
+	knockback(area.get_parent().velocity)
+	efx_animation_player.play("hurt_blink")
+	hurt_timer.start()
+	await hurt_timer.timeout
+	efx_animation_player.play("RESET")
+	is_hurt = false
+
 #region Signals
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.name == "HitBox":
-		hp -= 1
-		if hp <= 0:
-			hp = max_hp
-		health_changed.emit(hp)
-		knockback(area.get_parent().velocity)
-		efx_animation_player.play("hurt_blink")
-		hurt_timer.start()
-		await hurt_timer.timeout
-		efx_animation_player.play("RESET")
+		enemy_collisions.append(area)
+
+func _on_hurt_box_area_exited(area: Area2D) -> void:
+	enemy_collisions.erase(area)
+
 #endregion
