@@ -11,6 +11,9 @@ signal health_changed(amount: int)
 
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var efx_animation_player: AnimationPlayer = $AnimatedSprite2D/EfxAnimationPlayer
+@onready var hurt_timer: Timer = $HurtTimer
+
 @onready var hp: int = max_hp
 
 var direction := Vector2.ZERO
@@ -18,6 +21,7 @@ var last_facing := Vector2.ZERO
 
 func _ready() -> void:
 	_setup_camera_limits()
+	efx_animation_player.play("RESET")
 
 
 func _process(_delta: float) -> void:
@@ -71,4 +75,8 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 			hp = max_hp
 		health_changed.emit(hp)
 		knockback(area.get_parent().velocity)
+		efx_animation_player.play("hurt_blink")
+		hurt_timer.start()
+		await hurt_timer.timeout
+		efx_animation_player.play("RESET")
 #endregion
