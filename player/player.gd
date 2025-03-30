@@ -13,13 +13,13 @@ signal health_changed(amount: int)
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var efx_animation_player: AnimationPlayer = $AnimatedSprite2D/EfxAnimationPlayer
 @onready var hurt_timer: Timer = $HurtTimer
+@onready var hurt_box: HurtBox = $HurtBox
 
 @onready var hp: int = max_hp
 
 var direction := Vector2.ZERO
 var last_facing := Vector2.ZERO
 var is_hurt := false
-var enemy_collisions := []
 
 func _ready() -> void:
 	_setup_camera_limits()
@@ -37,9 +37,11 @@ func _physics_process(_delta: float) -> void:
 	velocity = direction * move_speed
 	move_and_slide()
 
-	if not is_hurt:
-		for area in enemy_collisions:
-			hurt_by_enemy(area)
+	if is_hurt: return
+
+	for area in hurt_box.get_overlapping_areas():
+		if not area is HitBox: continue
+		hurt_by_enemy(area)
 
 func update_animate_param() -> void:
 	var idle := !velocity
@@ -88,10 +90,10 @@ func hurt_by_enemy(area: Area2D) -> void:
 
 #region Signals
 func _on_hurt_box_area_entered(area: Area2D) -> void:
-	if area.name == "HitBox":
-		enemy_collisions.append(area)
-
-func _on_hurt_box_area_exited(area: Area2D) -> void:
-	enemy_collisions.erase(area)
+	if area.has_method("collect"):
+		area.collect()
+#
+#func _on_hurt_box_area_exited(area: Area2D) -> void:
+	#enemy_collisions.erase(area)
 
 #endregion

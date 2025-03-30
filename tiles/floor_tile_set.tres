@@ -1,10 +1,12 @@
-[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://ci88b6gx3huoe"]
+[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://ci88b6gx3huoe"]
 
 [ext_resource type="Texture2D" uid="uid://dt4t0d3g4dm1i" path="res://tiles/TilesetFloor.png" id="1_xfm1h"]
 [ext_resource type="Texture2D" uid="uid://df221jp3f5ryc" path="res://tiles/TilesetNature.png" id="2_rvlan"]
 [ext_resource type="Texture2D" uid="uid://bky0jw8u1t6a6" path="res://tiles/SpriteSheet16x16.png" id="3_re5ev"]
 [ext_resource type="Texture2D" uid="uid://crseldjn87bjw" path="res://tiles/TilesetHouse.png" id="4_6d610"]
 [ext_resource type="Texture2D" uid="uid://8a7dl70t8jmp" path="res://tiles/TilesetWater.png" id="5_2ipvi"]
+[ext_resource type="PackedScene" uid="uid://b8r04kfgn8ov3" path="res://items/life_pot.tscn" id="6_g8a3h"]
+[ext_resource type="PackedScene" uid="uid://c2tpka11d1b7" path="res://items/medipack.tscn" id="6_xloo0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rvlan"]
 texture = ExtResource("1_xfm1h")
@@ -2018,6 +2020,11 @@ texture = ExtResource("5_2ipvi")
 7:16/0 = 0
 8:16/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ie4k8"]
+resource_name = "Collectables"
+scenes/1/scene = ExtResource("6_g8a3h")
+scenes/2/scene = ExtResource("6_xloo0")
+
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -2030,3 +2037,4 @@ sources/1 = SubResource("TileSetAtlasSource_re5ev")
 sources/2 = SubResource("TileSetAtlasSource_6d610")
 sources/3 = SubResource("TileSetAtlasSource_2ipvi")
 sources/4 = SubResource("TileSetAtlasSource_xloo0")
+sources/6 = SubResource("TileSetScenesCollectionSource_ie4k8")
