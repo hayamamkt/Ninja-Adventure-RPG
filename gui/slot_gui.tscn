@@ -1,13 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://bllnlnwclsdci"]
+[gd_scene load_steps=3 format=3 uid="uid://bllnlnwclsdci"]
 
-[ext_resource type="Texture2D" uid="uid://c8tcf5v5j4p05" path="res://gui/nine_path_panel_interior.png" id="1_5nm7y"]
+[ext_resource type="Texture2D" uid="uid://c8tcf5v5j4p05" path="res://gui/assets/nine_path_panel_interior.png" id="1_5nm7y"]
+[ext_resource type="Script" uid="uid://dhvmm5tf34qs2" path="res://gui/slot_gui.gd" id="1_adqb6"]
 
 [node name="SlotGUI" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(20, 20)
-offset_right = 17.0
-offset_bottom = 17.0
+custom_minimum_size = Vector2(21, 21)
+offset_right = 21.0
+offset_bottom = 21.0
+script = ExtResource("1_adqb6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_5nm7y")
 centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 21.0
+offset_bottom = 21.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Item" type="Sprite2D" parent="CenterContainer/Panel"]

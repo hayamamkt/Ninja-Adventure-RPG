@@ -1,4 +1,13 @@
 extends Resource
 class_name Inventory
 
-@export var items: Array[InvertoryItem]
+signal updated
+
+@export var items: Array[InventoryItem]
+
+func insert(item: InventoryItem) -> void:
+	for i in range(items.size()):
+		if not items[i]:
+			items[i] = item
+			break
+	updated.emit()

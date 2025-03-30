@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8tcf5v5j4p05"
-path="res://.godot/imported/nine_path_panel_interior.png-3d385bc18b6bdd62b7be0f17cdae7c6d.ctex"
+uid="uid://b13gc5256ud5i"
+path="res://.godot/imported/WaterPot.png-88a4f0b93af2113931d09a1fed26cbde.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gui/nine_path_panel_interior.png"
-dest_files=["res://.godot/imported/nine_path_panel_interior.png-3d385bc18b6bdd62b7be0f17cdae7c6d.ctex"]
+source_file="res://items/assets/WaterPot.png"
+dest_files=["res://.godot/imported/WaterPot.png-88a4f0b93af2113931d09a1fed26cbde.ctex"]
 
 [params]
 

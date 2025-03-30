@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnfn0nobc6ec6"
-path="res://.godot/imported/LifePot.png-9f402234a46e2b06b812797394dcc417.ctex"
+uid="uid://duefse47t71ug"
+path="res://.godot/imported/heart.png-c32777a09b04a20dc0e8549105b82fbc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/LifePot.png"
-dest_files=["res://.godot/imported/LifePot.png-9f402234a46e2b06b812797394dcc417.ctex"]
+source_file="res://gui/assets/heart.png"
+dest_files=["res://.godot/imported/heart.png-c32777a09b04a20dc0e8549105b82fbc.ctex"]
 
 [params]
 

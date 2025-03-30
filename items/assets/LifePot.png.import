@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3yx5vpmloew5"
-path="res://.godot/imported/nine_path_panel.png-1e61801345b664c0b01b845f937af174.ctex"
+uid="uid://dnfn0nobc6ec6"
+path="res://.godot/imported/LifePot.png-f5b73fedb0ff0fb38572d7a814e88441.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gui/nine_path_panel.png"
-dest_files=["res://.godot/imported/nine_path_panel.png-1e61801345b664c0b01b845f937af174.ctex"]
+source_file="res://items/assets/LifePot.png"
+dest_files=["res://.godot/imported/LifePot.png-f5b73fedb0ff0fb38572d7a814e88441.ctex"]
 
 [params]
 

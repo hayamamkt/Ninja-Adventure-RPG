@@ -8,6 +8,7 @@ signal health_changed(amount: int)
 @export var move_speed := 100.0
 @export_range(1, 6, 1) var max_hp := 3
 @export var knockback_power := 800
+@export var inventory: Inventory
 
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -91,7 +92,7 @@ func hurt_by_enemy(area: Area2D) -> void:
 #region Signals
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.has_method("collect"):
-		area.collect()
+		area.collect(inventory)
 #
 #func _on_hurt_box_area_exited(area: Area2D) -> void:
 	#enemy_collisions.erase(area)

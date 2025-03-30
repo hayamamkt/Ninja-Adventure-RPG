@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bavaoh3inp3l1"
-path="res://.godot/imported/EmptyPot.png-e15b2176db826deb30bace25518b12b4.ctex"
+uid="uid://cbko41bt7as4s"
+path="res://.godot/imported/MilkPot.png-8cdedb7ee127e582843fb3846a1fecd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/EmptyPot.png"
-dest_files=["res://.godot/imported/EmptyPot.png-e15b2176db826deb30bace25518b12b4.ctex"]
+source_file="res://items/assets/MilkPot.png"
+dest_files=["res://.godot/imported/MilkPot.png-8cdedb7ee127e582843fb3846a1fecd7.ctex"]
 
 [params]
 
