@@ -47,7 +47,7 @@ tile_set = ExtResource("1_wt17y")
 tile_set = ExtResource("1_wt17y")
 
 [node name="Items" type="TileMapLayer" parent="Tiles"]
-tile_map_data = PackedByteArray("AAAVAA8ABgAAAAAAAQAaAAYABgAAAAAAAgAYAAcABgAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAAVAA8ABgAAAAAAAQAaAAYABgAAAAAAAgAYAAcABgAAAAAAAgAXAA8ABgAAAAAAAQAVABEABgAAAAAAAQAUABEABgAAAAAAAQAaABAABgAAAAAAAQA=")
 tile_set = ExtResource("1_wt17y")
 
 [node name="Enemies" type="Node2D" parent="."]
