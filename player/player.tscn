@@ -1,10 +1,11 @@
-[gd_scene load_steps=49 format=3 uid="uid://b7edocifp37tp"]
+[gd_scene load_steps=51 format=3 uid="uid://b7edocifp37tp"]
 
 [ext_resource type="SpriteFrames" uid="uid://cg0kjlxfk4a5w" path="res://player/ninja_green_sprite_frames.tres" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://b4eqowyquqexw" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://b6s7tn7v8adg5" path="res://player/Shadow.png" id="2_g1dw6"]
 [ext_resource type="Resource" uid="uid://2bgp63drw15n" path="res://player/player_inventory.tres" id="2_qjkh3"]
 [ext_resource type="PackedScene" uid="uid://d1vx3c34m0w1w" path="res://general/hurt_box.tscn" id="4_yw30f"]
+[ext_resource type="PackedScene" uid="uid://ckga241t5ewdp" path="res://general/hit_box.tscn" id="6_boad6"]
 [ext_resource type="PackedScene" uid="uid://dfo1a4hyp6gnw" path="res://weapons/big_sword.tscn" id="6_g6k8r"]
 
 [sub_resource type="Animation" id="Animation_wodsf"]
@@ -739,9 +740,13 @@ graph_offset = Vector2(-284.1, -64.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjkh3"]
 size = Vector2(12, 14)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rgyib"]
+radius = 5.0
+height = 18.0
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
-collision_mask = 16
+collision_mask = 17
 motion_mode = 1
 script = ExtResource("1_rkbax")
 inventory = ExtResource("2_qjkh3")
@@ -801,12 +806,19 @@ parameters/Idle/blend_position = Vector2(0.0227545, 0.125731)
 parameters/Walk/blend_position = Vector2(0, 0)
 
 [node name="HurtBox" parent="." instance=ExtResource("4_yw30f")]
-collision_layer = 0
-collision_mask = 256
+collision_mask = 33
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_qjkh3")
+debug_color = Color(0.93, 0.1488, 0.52638, 0.270588)
+
+[node name="HitBox" parent="." instance=ExtResource("6_boad6")]
+collision_layer = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_rgyib")
 
 [node name="HurtTimer" type="Timer" parent="."]
 one_shot = true
@@ -815,9 +827,8 @@ one_shot = true
 visible = false
 
 [node name="BigSword" parent="Weapons" instance=ExtResource("6_g6k8r")]
-collision_layer = 0
-collision_mask = 256
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 
 [editable path="HurtBox"]
+[editable path="HitBox"]

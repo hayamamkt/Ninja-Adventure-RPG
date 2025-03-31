@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bg4fjvkwyp6vl"]
+[gd_scene load_steps=19 format=3 uid="uid://bg4fjvkwyp6vl"]
 
 [ext_resource type="Script" uid="uid://twsg4oxwv31t" path="res://enemies/slime/slime.gd" id="1_6326o"]
 [ext_resource type="Texture2D" uid="uid://b6s7tn7v8adg5" path="res://player/Shadow.png" id="1_j284o"]
 [ext_resource type="SpriteFrames" uid="uid://i8du0x5kta08" path="res://enemies/slime/slime.tres" id="2_j284o"]
 [ext_resource type="PackedScene" uid="uid://ckga241t5ewdp" path="res://general/hit_box.tscn" id="4_57eei"]
+[ext_resource type="PackedScene" uid="uid://d1vx3c34m0w1w" path="res://general/hurt_box.tscn" id="5_u2l51"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j284o"]
 radius = 2.0
@@ -268,6 +269,10 @@ _data = {
 radius = 4.0
 height = 16.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ui2u"]
+radius = 4.0
+height = 18.0
+
 [node name="Slime" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 256
@@ -297,12 +302,22 @@ libraries = {
 autoplay = "idle_down"
 
 [node name="HitBox" parent="." instance=ExtResource("4_57eei")]
-collision_layer = 256
-collision_mask = 0
+collision_layer = 32
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(0, -4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_u2l51")
 
+[node name="HurtBox" parent="." instance=ExtResource("5_u2l51")]
+collision_mask = 32
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2ui2u")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+
 [editable path="HitBox"]
+[editable path="HurtBox"]

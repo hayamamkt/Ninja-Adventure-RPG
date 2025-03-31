@@ -41,3 +41,8 @@ func update_velocity() -> void:
 		change_direction()
 
 	velocity = move_dir.normalized() * speed
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if area == $HitBox: return
+	print_debug(area)
