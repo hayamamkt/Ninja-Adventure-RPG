@@ -46,3 +46,6 @@ func update_velocity() -> void:
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area == $HitBox: return
 	print_debug(area)
+	$DeathSrite2D/DeathAnimationPlayer.play("death")
+	await $DeathSrite2D/DeathAnimationPlayer.animation_finished
+	queue_free()
