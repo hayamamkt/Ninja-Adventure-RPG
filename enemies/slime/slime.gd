@@ -8,12 +8,15 @@ extends CharacterBody2D
 
 var start_pos
 var end_pos
+var is_dead := false
 
 func _ready() -> void:
 	start_pos = position
 	end_pos = end_point.global_position
 
 func _physics_process(_delta: float) -> void:
+	if is_dead: return
+
 	update_velocity()
 	move_and_slide()
 	update_animation()
@@ -46,6 +49,7 @@ func update_velocity() -> void:
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area == $HitBox: return
 	print_debug(area)
+	is_dead = true
 	$DeathSrite2D/DeathAnimationPlayer.play("death")
 	await $DeathSrite2D/DeathAnimationPlayer.animation_finished
 	queue_free()

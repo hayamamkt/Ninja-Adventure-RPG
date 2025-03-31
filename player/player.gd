@@ -15,12 +15,15 @@ signal health_changed(amount: int)
 @onready var efx_animation_player: AnimationPlayer = $AnimatedSprite2D/EfxAnimationPlayer
 @onready var hurt_timer: Timer = $HurtTimer
 @onready var hurt_box: HurtBox = $HurtBox
+@onready var weapons: Node2D = $Weapons
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var hp: int = max_hp
 
 var direction := Vector2.ZERO
 var last_facing := Vector2.ZERO
 var is_hurt := false
+var is_attacking := false
 
 func _ready() -> void:
 	_setup_camera_limits()
@@ -59,8 +62,14 @@ func update_animate_param() -> void:
 
 	if Input.is_action_just_pressed("attack"):
 		animation_tree.set("parameters/conditions/attacking", true)
+		is_attacking = true
+		weapons.enable()
+		await animation_tree.animation_finished
+		weapons.disable()
+		is_attacking = false
 	else:
 		animation_tree.set("parameters/conditions/attacking", false)
+		#weapons.disable()
 
 func _setup_camera_limits():
 	var map_rect = ground_tilemap.get_used_rect()
