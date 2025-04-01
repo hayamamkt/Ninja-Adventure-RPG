@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 
-signal health_changed(amount: int)
+#signal health_changed(amount: int)
 
 @export var ground_tilemap: TileMapLayer
 @export var move_speed := 100.0
@@ -15,8 +15,6 @@ signal health_changed(amount: int)
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var efx_animation_player: AnimationPlayer = $AnimatedSprite2D/EfxAnimationPlayer
-@onready var hurt_timer: Timer = $HurtTimer
-@onready var hurt_box: HurtBox = $HurtBox
 @onready var weapons: Node2D = $Weapons
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -33,6 +31,7 @@ func _ready() -> void:
 	efx_animation_player.play("RESET")
 	audio_stream_player_2d.stream = attack_sound
 	audio_stream_player_2d.pitch_scale = randf_range(0.7, 1.3)
+	weapons.disable()
 
 func _process(_delta: float) -> void:
 	direction = Input.get_vector(
@@ -46,13 +45,14 @@ func _physics_process(_delta: float) -> void:
 		velocity -= velocity * decelerate_speed * _delta
 	else:
 		velocity = direction * move_speed
+		#weapons.disable()
 	move_and_slide()
-
-	if is_hurt: return
-
-	for area in hurt_box.get_overlapping_areas():
-		if not area is HitBox: continue
-		hurt_by_enemy(area)
+#
+	#if is_hurt: return
+#
+	#for area in hurt_box.get_overlapping_areas():
+		#if not area is HitBox: continue
+		#hurt_by_enemy(area)
 
 func update_animate_param() -> void:
 	var idle := !velocity
@@ -72,7 +72,8 @@ func update_animate_param() -> void:
 		audio_stream_player_2d.play()
 		is_attacking = true
 		weapons.enable()
-		await animation_tree.animation_finished
+		#await animation_tree.animation_finished
+		await get_tree().create_timer(0.4).timeout
 		weapons.disable()
 		is_attacking = false
 	else:
@@ -93,25 +94,31 @@ func knockback(enemy_velocity: Vector2) -> void:
 	velocity = knockback_dir
 	move_and_slide()
 
-func hurt_by_enemy(area: Area2D) -> void:
-	hp -= 1
-	if hp <= 0: hp = max_hp
-
-	health_changed.emit(hp)
-	is_hurt = true
-	knockback(area.get_parent().velocity)
-	efx_animation_player.play("hurt_blink")
-	hurt_timer.start()
-	await hurt_timer.timeout
-	efx_animation_player.play("RESET")
-	is_hurt = false
+#func hurt_by_enemy(area: Area2D) -> void:
+	#hp -= 1
+	#if hp <= 0: hp = max_hp
+#
+	#health_changed.emit(hp)
+	#is_hurt = true
+	#knockback(area.get_parent().velocity)
+	#efx_animation_player.play("hurt_blink")
+	#hurt_timer.start()
+	#await hurt_timer.timeout
+	#efx_animation_player.play("RESET")
+	#is_hurt = false
 
 #region Signals
-func _on_hurt_box_area_entered(area: Area2D) -> void:
-	if area.has_method("collect"):
-		area.collect(inventory)
+
 #
 #func _on_hurt_box_area_exited(area: Area2D) -> void:
 	#enemy_collisions.erase(area)
 
+func _on_big_sword_area_entered(area: Area2D) -> void:
+	print_debug(area)
+	pass # Replace with function body.
+
 #endregion
+
+
+func _on_big_sword_body_entered(body: Node2D) -> void:
+	print_debug(body)

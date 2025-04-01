@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://dc21web7p7fw6"]
+[gd_scene load_steps=5 format=4 uid="uid://dc21web7p7fw6"]
 
 [ext_resource type="Script" uid="uid://jgotugt4afsa" path="res://playground.gd" id="1_o00ia"]
 [ext_resource type="PackedScene" uid="uid://b7edocifp37tp" path="res://player/player.tscn" id="1_rupst"]
 [ext_resource type="TileSet" uid="uid://ci88b6gx3huoe" path="res://tiles/floor_tile_set.tres" id="1_wt17y"]
+[ext_resource type="PackedScene" uid="uid://618a2fkt08n5" path="res://props/plant.tscn" id="4_is3ju"]
 
 [node name="Playground" type="Node2D"]
 y_sort_enabled = true
@@ -40,7 +41,7 @@ tile_set = ExtResource("1_wt17y")
 
 [node name="Props" type="TileMapLayer" parent="Tiles"]
 y_sort_enabled = true
-position = Vector2(-16, 11)
+position = Vector2(-16, 12)
 tile_set = ExtResource("1_wt17y")
 
 [node name="Houses" type="TileMapLayer" parent="Tiles"]
@@ -52,3 +53,50 @@ tile_set = ExtResource("1_wt17y")
 [node name="Player" parent="." node_paths=PackedStringArray("ground_tilemap") instance=ExtResource("1_rupst")]
 position = Vector2(320, 178)
 ground_tilemap = NodePath("../Tiles/Ground")
+
+[node name="Plants" type="Node2D" parent="."]
+
+[node name="Plant" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(264, 232)
+
+[node name="Plant2" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(280, 232)
+
+[node name="Plant3" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(296, 232)
+
+[node name="Plant4" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(328, 232)
+
+[node name="Plant5" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(312, 232)
+
+[node name="Plant6" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(264, 245)
+
+[node name="Plant7" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(280, 245)
+
+[node name="Plant8" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(296, 245)
+
+[node name="Plant9" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(328, 245)
+
+[node name="Plant10" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(312, 245)
+
+[node name="Plant11" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(264, 259)
+
+[node name="Plant12" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(280, 259)
+
+[node name="Plant13" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(296, 259)
+
+[node name="Plant14" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(328, 259)
+
+[node name="Plant15" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(312, 259)

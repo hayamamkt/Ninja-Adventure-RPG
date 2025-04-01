@@ -7,5 +7,3 @@ collision_layer = 256
 collision_mask = 0
 monitoring = false
 script = ExtResource("1_ffyeh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
