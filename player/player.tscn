@@ -1,9 +1,10 @@
-[gd_scene load_steps=52 format=3 uid="uid://b7edocifp37tp"]
+[gd_scene load_steps=53 format=3 uid="uid://b7edocifp37tp"]
 
 [ext_resource type="SpriteFrames" uid="uid://cg0kjlxfk4a5w" path="res://player/ninja_green_sprite_frames.tres" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://b4eqowyquqexw" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://b6s7tn7v8adg5" path="res://player/Shadow.png" id="2_g1dw6"]
 [ext_resource type="Resource" uid="uid://2bgp63drw15n" path="res://player/player_inventory.tres" id="2_qjkh3"]
+[ext_resource type="AudioStream" uid="uid://dsyotp2o1mqyk" path="res://general/assets/Sounds/Game/Sword2.wav" id="3_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://d1vx3c34m0w1w" path="res://general/hurt_box.tscn" id="4_yw30f"]
 [ext_resource type="PackedScene" uid="uid://ckga241t5ewdp" path="res://general/hit_box.tscn" id="6_boad6"]
 [ext_resource type="PackedScene" uid="uid://dfo1a4hyp6gnw" path="res://weapons/big_sword.tscn" id="6_g6k8r"]
@@ -736,7 +737,7 @@ states/Idle/position = Vector2(420, 110)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_8t03j")
 states/Walk/position = Vector2(651, 118.5)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_g1dw6"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_yw30f"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_qjkh3"), "Walk", "Attack", SubResource("AnimationNodeStateMachineTransition_c35mf"), "Attack", "Walk", SubResource("AnimationNodeStateMachineTransition_65viv"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_x7c3f"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_bjvpn")]
-graph_offset = Vector2(-284.1, -64.5)
+graph_offset = Vector2(-310.635, -94.8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjkh3"]
 size = Vector2(12, 14)
@@ -751,6 +752,7 @@ collision_mask = 17
 motion_mode = 1
 script = ExtResource("1_rkbax")
 inventory = ExtResource("2_qjkh3")
+attack_sound = ExtResource("3_hg6s5")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0.14, 0.14, 0.14, 0.427451)
@@ -802,9 +804,9 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/attacking = false
 parameters/conditions/idling = false
 parameters/conditions/walking = false
-parameters/Attack/blend_position = Vector2(0.0269461, 0.356725)
+parameters/Attack/blend_position = Vector2(-0.0125749, 0.210526)
 parameters/Idle/blend_position = Vector2(0.0227545, 0.125731)
-parameters/Walk/blend_position = Vector2(0, 0)
+parameters/Walk/blend_position = Vector2(-0.00898206, 0.0906736)
 
 [node name="HurtBox" parent="." instance=ExtResource("4_yw30f")]
 collision_mask = 32
@@ -829,6 +831,9 @@ visible = false
 script = ExtResource("7_rgyib")
 
 [node name="BigSword" parent="Weapons" instance=ExtResource("6_g6k8r")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 4
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 

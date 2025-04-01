@@ -6,9 +6,11 @@ signal health_changed(amount: int)
 
 @export var ground_tilemap: TileMapLayer
 @export var move_speed := 100.0
+@export_range(1, 20, 0.5) var decelerate_speed : float = 10.0
 @export_range(1, 6, 1) var max_hp := 3
 @export var knockback_power := 800
 @export var inventory: Inventory
+@export var attack_sound: AudioStream
 
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -17,6 +19,7 @@ signal health_changed(amount: int)
 @onready var hurt_box: HurtBox = $HurtBox
 @onready var weapons: Node2D = $Weapons
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @onready var hp: int = max_hp
 
@@ -28,7 +31,8 @@ var is_attacking := false
 func _ready() -> void:
 	_setup_camera_limits()
 	efx_animation_player.play("RESET")
-
+	audio_stream_player_2d.stream = attack_sound
+	audio_stream_player_2d.pitch_scale = randf_range(0.7, 1.3)
 
 func _process(_delta: float) -> void:
 	direction = Input.get_vector(
@@ -38,7 +42,10 @@ func _process(_delta: float) -> void:
 	update_animate_param()
 
 func _physics_process(_delta: float) -> void:
-	velocity = direction * move_speed
+	if is_attacking:
+		velocity -= velocity * decelerate_speed * _delta
+	else:
+		velocity = direction * move_speed
 	move_and_slide()
 
 	if is_hurt: return
@@ -62,6 +69,7 @@ func update_animate_param() -> void:
 
 	if Input.is_action_just_pressed("attack"):
 		animation_tree.set("parameters/conditions/attacking", true)
+		audio_stream_player_2d.play()
 		is_attacking = true
 		weapons.enable()
 		await animation_tree.animation_finished
