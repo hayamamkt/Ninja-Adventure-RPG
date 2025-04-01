@@ -12,7 +12,7 @@ var is_dead := false
 
 func _ready() -> void:
 	start_pos = position
-	end_pos = end_point.global_position
+	#end_pos = end_point.global_position
 
 func _physics_process(_delta: float) -> void:
 	if is_dead: return

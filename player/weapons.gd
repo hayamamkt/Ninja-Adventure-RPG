@@ -7,7 +7,6 @@ func _ready() -> void:
 
 	weapon = get_children()[0].get_child(0)
 	weapon.monitorable = false
-	print_debug(weapon)
 
 func enable() -> void:
 	if not weapon: return
