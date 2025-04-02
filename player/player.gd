@@ -8,6 +8,7 @@ const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT,  Vector2.UP]
 @export var max_hp := 6
 @export var invulnerable_duration := 1.0
 @export var knockback_speed := 500.0
+@export var weapon: Area2D
 
 @export_category("Movement")
 @export var move_speed := 150.0
@@ -17,6 +18,8 @@ const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT,  Vector2.UP]
 @export var attack_sound: AudioStream
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var audio: AudioStreamPlayer2D = $Audio/AudioStreamPlayer2D
+@onready var weapon_animation_player: AnimationPlayer = $Weapons/WeaponAnimationPlayer
 
 @onready var hsm: LimboHSM = $LimboHSM
 @onready var idle_state: LimboState = $LimboHSM/Idle
@@ -64,10 +67,10 @@ func apply_decelerate(delta: float) -> void:
 
 func apply_attack() -> void:
 	apply_animation("attack")
-	#splash_animation_player.play("attack_" + apply_dir())
-	#audio.stream = attack_sound
-	#audio.pitch_scale = randf_range(0.9, 1.1)
-	#audio.play()
+	weapon_animation_player.play(apply_dir())
+	audio.stream = attack_sound
+	audio.pitch_scale = randf_range(0.9, 1.1)
+	audio.play()
 
 
 func apply_dir() -> String:

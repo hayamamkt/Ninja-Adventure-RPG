@@ -4,15 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://d1vx3c34m0w1w" path="res://general/hurt_box.tscn" id="1_nw5tg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nw5tg"]
-size = Vector2(4, 10)
+size = Vector2(4, 8)
 
-[node name="BigSword" type="Node2D"]
-
-[node name="HurtBox" parent="." instance=ExtResource("1_nw5tg")]
+[node name="BigSword" instance=ExtResource("1_nw5tg")]
 collision_mask = 256
 
-[node name="Sprite2D" type="Sprite2D" parent="HurtBox"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 texture = ExtResource("1_m0m0t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_nw5tg")
