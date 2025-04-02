@@ -32,9 +32,19 @@ var direction: Vector2 = Vector2.ZERO
 var movement_input: Vector2 = Vector2.ZERO
 var invulnerable := false
 
+
 func _ready() -> void:
 	#PlayerManager.player = self
 	_init_state_machine()
+	_setup_weapon()
+	toggle_weapon(false)
+
+func _setup_weapon() -> void:
+	for w in $Weapons.get_children():
+		if w is Area2D:
+			w.visible = false
+			w.monitoring = false
+			w.collision_mask = 0
 
 func _init_state_machine() -> void:
 	hsm.add_transition(hsm.ANYSTATE, move_state, PlayerState.TO_WALK)
@@ -56,6 +66,12 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
+func toggle_weapon(value: bool) -> void:
+	if weapon == null: return
+	weapon.visible = value
+	weapon.monitoring = value
+	weapon.collision_mask = 256 if value else 0
+
 func apply_animation(state: String) -> void:
 	animation_player.play(state + "_" + apply_dir())
 
@@ -67,6 +83,7 @@ func apply_decelerate(delta: float) -> void:
 
 func apply_attack() -> void:
 	apply_animation("attack")
+	if weapon == null: return
 	weapon_animation_player.play(apply_dir())
 	audio.stream = attack_sound
 	audio.pitch_scale = randf_range(0.9, 1.1)

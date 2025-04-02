@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4wd8pi4f7t1q"]
+
+[ext_resource type="PackedScene" uid="uid://bj4noqfwgrjxl" path="res://weapons/base_weapon.tscn" id="1_h24fx"]
+[ext_resource type="Texture2D" uid="uid://sbdhebl6upf" path="res://weapons/assets/Ninjaku/SpriteInHand.png" id="2_6hu2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4txfv"]
+size = Vector2(2, 5)
+
+[node name="Ninjaku" instance=ExtResource("1_h24fx")]
+collision_mask = 0
+monitoring = false
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, 6)
+texture = ExtResource("2_6hu2n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_4txfv")

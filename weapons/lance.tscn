@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfmof1kgcail3"]
+
+[ext_resource type="PackedScene" uid="uid://bj4noqfwgrjxl" path="res://weapons/base_weapon.tscn" id="1_qnhps"]
+[ext_resource type="Texture2D" uid="uid://buactgqoffmmv" path="res://weapons/assets/Lance/SpriteInHand.png" id="2_xpjpj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oixj5"]
+size = Vector2(3, 6)
+
+[node name="Lance" instance=ExtResource("1_qnhps")]
+collision_mask = 256
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, 8)
+texture = ExtResource("2_xpjpj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(-0.5, 12)
+shape = SubResource("RectangleShape2D_oixj5")

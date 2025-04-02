@@ -97,6 +97,141 @@ position = Vector2(328, 259)
 [node name="Plant15" parent="Plants" instance=ExtResource("4_is3ju")]
 position = Vector2(312, 259)
 
+[node name="Plant16" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(264, 272)
+
+[node name="Plant17" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(280, 272)
+
+[node name="Plant18" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(296, 272)
+
+[node name="Plant19" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(328, 272)
+
+[node name="Plant20" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(312, 272)
+
+[node name="Plant21" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(264, 288)
+
+[node name="Plant22" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(280, 288)
+
+[node name="Plant23" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(296, 288)
+
+[node name="Plant24" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(328, 288)
+
+[node name="Plant25" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(312, 288)
+
+[node name="Plant26" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(264, 304)
+
+[node name="Plant27" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(280, 304)
+
+[node name="Plant28" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(296, 304)
+
+[node name="Plant29" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(328, 304)
+
+[node name="Plant30" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(312, 304)
+
+[node name="Plant31" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(224, 144)
+
+[node name="Plant32" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(240, 144)
+
+[node name="Plant33" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(256, 144)
+
+[node name="Plant34" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(288, 144)
+
+[node name="Plant35" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(272, 144)
+
+[node name="Plant36" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(224, 157)
+
+[node name="Plant37" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(240, 157)
+
+[node name="Plant38" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(256, 157)
+
+[node name="Plant39" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(288, 157)
+
+[node name="Plant40" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(272, 157)
+
+[node name="Plant41" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(224, 171)
+
+[node name="Plant42" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(240, 171)
+
+[node name="Plant43" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(256, 171)
+
+[node name="Plant44" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(288, 171)
+
+[node name="Plant45" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(272, 171)
+
+[node name="Plant46" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(224, 184)
+
+[node name="Plant47" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(240, 184)
+
+[node name="Plant48" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(256, 184)
+
+[node name="Plant49" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(288, 184)
+
+[node name="Plant50" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(272, 184)
+
+[node name="Plant51" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(224, 200)
+
+[node name="Plant52" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(240, 200)
+
+[node name="Plant53" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(256, 200)
+
+[node name="Plant54" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(288, 200)
+
+[node name="Plant55" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(272, 200)
+
+[node name="Plant56" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(224, 216)
+
+[node name="Plant57" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(240, 216)
+
+[node name="Plant58" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(256, 216)
+
+[node name="Plant59" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(288, 216)
+
+[node name="Plant60" parent="Plants" instance=ExtResource("4_is3ju")]
+position = Vector2(272, 216)
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_rupst")]

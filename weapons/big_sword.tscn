@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://dfo1a4hyp6gnw"]
 
-[ext_resource type="Texture2D" uid="uid://dadgalh6uivf1" path="res://weapons/assets/BigSword/SpriteInHand.png" id="1_m0m0t"]
-[ext_resource type="PackedScene" uid="uid://d1vx3c34m0w1w" path="res://general/hurt_box.tscn" id="1_nw5tg"]
+[ext_resource type="PackedScene" uid="uid://bj4noqfwgrjxl" path="res://weapons/base_weapon.tscn" id="1_m0m0t"]
+[ext_resource type="Texture2D" uid="uid://dadgalh6uivf1" path="res://weapons/assets/BigSword/SpriteInHand.png" id="2_nw5tg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nw5tg"]
 size = Vector2(4, 8)
 
-[node name="BigSword" instance=ExtResource("1_nw5tg")]
+[node name="BigSword" instance=ExtResource("1_m0m0t")]
 collision_mask = 256
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, 6)
-texture = ExtResource("1_m0m0t")
+texture = ExtResource("2_nw5tg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 6)
