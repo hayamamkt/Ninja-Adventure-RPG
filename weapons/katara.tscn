@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://btmwe5r4n06wb"]
+
+[ext_resource type="PackedScene" uid="uid://d1vx3c34m0w1w" path="res://general/hurt_box.tscn" id="1_bpkdb"]
+[ext_resource type="Texture2D" uid="uid://bdm7j48c7kjpi" path="res://weapons/assets/Katana/SpriteInHand.png" id="2_0c8bn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8gfw"]
+size = Vector2(4, 7)
+
+[node name="Katara" instance=ExtResource("1_bpkdb")]
+collision_mask = 256
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(0, 5)
+texture = ExtResource("2_0c8bn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_o8gfw")

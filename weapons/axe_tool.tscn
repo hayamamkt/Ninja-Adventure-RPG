@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://iufcy584887s"]
+
+[ext_resource type="PackedScene" uid="uid://bj4noqfwgrjxl" path="res://weapons/base_weapon.tscn" id="1_0l4vr"]
+[ext_resource type="Texture2D" uid="uid://dm408y6ikosvf" path="res://weapons/assets/AxeTool/SpriteInHand.png" id="2_8digw"]
+
+[node name="AxeTool" instance=ExtResource("1_0l4vr")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-2.5, 4.5)
+texture = ExtResource("2_8digw")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-4.5, 4.5)

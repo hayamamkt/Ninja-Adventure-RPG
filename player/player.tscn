@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dminn5wgmkylp"]
+[gd_scene load_steps=32 format=3 uid="uid://dminn5wgmkylp"]
 
 [ext_resource type="SpriteFrames" uid="uid://cg0kjlxfk4a5w" path="res://player/ninja_green_sprite_frames.tres" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://b4eqowyquqexw" path="res://player/player.gd" id="1_rkbax"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dfo1a4hyp6gnw" path="res://weapons/big_sword.tscn" id="4_boad6"]
 [ext_resource type="Script" uid="uid://bk2t8d8aq1f8m" path="res://player/states/walk.gd" id="4_yw30f"]
 [ext_resource type="Script" uid="uid://clxcr5ol5radf" path="res://player/states/attack.gd" id="6_g6k8r"]
+[ext_resource type="PackedScene" uid="uid://btmwe5r4n06wb" path="res://weapons/katara.tscn" id="6_hg6s5"]
+[ext_resource type="PackedScene" uid="uid://iufcy584887s" path="res://weapons/axe_tool.tscn" id="7_8t03j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(12, 6)
@@ -65,7 +67,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-3, -8), Vector2(-3, 6), Vector2(-3, 6)]
+"values": [Vector2(0, 0), Vector2(-2, 0), Vector2(-2, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -106,7 +108,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-3, -10), Vector2(-3, -22), Vector2(-3, -22)]
+"values": [Vector2(-3, -10), Vector2(-3, -16), Vector2(-3, -16)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -147,7 +149,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(2, -4), Vector2(14, -4), Vector2(14, -4)]
+"values": [Vector2(0, 0), Vector2(8, -4), Vector2(8, -4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -188,7 +190,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-1, -4), Vector2(-14, -4), Vector2(-14, -4)]
+"values": [Vector2(0, 0), Vector2(-8, -4), Vector2(-8, -4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -212,7 +214,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, true, false]
+"values": [false, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_32hag"]
@@ -623,7 +625,7 @@ _data = {
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("weapon")]
 collision_mask = 16
 script = ExtResource("1_rkbax")
-weapon = NodePath("Weapons/BigSword")
+weapon = NodePath("Weapons/Katara")
 attack_sound = ExtResource("2_rgyib")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -656,13 +658,19 @@ visible = false
 show_behind_parent = true
 position = Vector2(-3, -8)
 
-[node name="BigSword" parent="Weapons" instance=ExtResource("4_boad6")]
-monitoring = false
-
 [node name="WeaponAnimationPlayer" type="AnimationPlayer" parent="Weapons"]
 libraries = {
 &"": SubResource("AnimationLibrary_32hag")
 }
+
+[node name="BigSword" parent="Weapons" instance=ExtResource("4_boad6")]
+visible = false
+monitoring = false
+
+[node name="Katara" parent="Weapons" instance=ExtResource("6_hg6s5")]
+
+[node name="AxeTool" parent="Weapons" instance=ExtResource("7_8t03j")]
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
