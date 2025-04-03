@@ -1,10 +1,11 @@
-[gd_scene load_steps=45 format=3 uid="uid://dminn5wgmkylp"]
+[gd_scene load_steps=46 format=3 uid="uid://dminn5wgmkylp"]
 
 [ext_resource type="SpriteFrames" uid="uid://cg0kjlxfk4a5w" path="res://player/ninja_green_sprite_frames.tres" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://b4eqowyquqexw" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://b6s7tn7v8adg5" path="res://player/Shadow.png" id="2_g1dw6"]
 [ext_resource type="AudioStream" uid="uid://dsyotp2o1mqyk" path="res://general/assets/Sounds/Game/Sword2.wav" id="2_rgyib"]
 [ext_resource type="Script" uid="uid://bnn7g7girvaim" path="res://player/states/idle.gd" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://ccqidcswhy6lw" path="res://player/player_camera.gd" id="3_g4c7l"]
 [ext_resource type="PackedScene" uid="uid://dfo1a4hyp6gnw" path="res://weapons/big_sword.tscn" id="4_boad6"]
 [ext_resource type="Script" uid="uid://bk2t8d8aq1f8m" path="res://player/states/walk.gd" id="4_yw30f"]
 [ext_resource type="PackedScene" uid="uid://dqivcxr5keibi" path="res://weapons/axe.tscn" id="5_kb6p2"]
@@ -644,6 +645,7 @@ attack_sound = ExtResource("2_rgyib")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+script = ExtResource("3_g4c7l")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0.14, 0.14, 0.14, 0.427451)
