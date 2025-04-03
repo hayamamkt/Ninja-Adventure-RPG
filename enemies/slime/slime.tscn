@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bg4fjvkwyp6vl"]
+[gd_scene load_steps=34 format=3 uid="uid://bg4fjvkwyp6vl"]
 
 [ext_resource type="Script" uid="uid://twsg4oxwv31t" path="res://enemies/slime/slime.gd" id="1_6326o"]
 [ext_resource type="SpriteFrames" uid="uid://i8du0x5kta08" path="res://enemies/slime/slime.tres" id="2_j284o"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bdgedl84wswun" path="res://enemies/slime/states/idle.gd" id="6_2ui2u"]
 [ext_resource type="Script" uid="uid://dm6e8kenwpta4" path="res://enemies/slime/states/walk.gd" id="7_bkm6f"]
 [ext_resource type="Script" uid="uid://31c76j3m7y4q" path="res://enemies/slime/states/stun.gd" id="8_5ctnu"]
-[ext_resource type="PackedScene" uid="uid://618a2fkt08n5" path="res://props/plant.tscn" id="9_kag0e"]
+[ext_resource type="Script" uid="uid://5rcemuno8jjy" path="res://enemies/slime/states/destroy.gd" id="9_kag0e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j284o"]
 radius = 2.0
@@ -431,9 +431,163 @@ tracks/2/keys = {
 "values": [Color(1, 0.03, 0.03, 0.576471), Color(1, 0.83, 0.83, 1), Color(1, 0, 0, 1), Color(1, 0.83, 0.83, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_mwtj1"]
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle_down"]
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeathSrite2D/DeathAnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("death"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_im24l"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle_up"]
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeathSrite2D/DeathAnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("death"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_yu3x6"]
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle_left"]
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeathSrite2D/DeathAnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("death"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_okhmd"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle_right"]
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeathSrite2D/DeathAnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("death"),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6d05t"]
 _data = {
 &"RESET": SubResource("Animation_k2ou5"),
+&"destroy_down": SubResource("Animation_mwtj1"),
+&"destroy_left": SubResource("Animation_yu3x6"),
+&"destroy_right": SubResource("Animation_okhmd"),
+&"destroy_up": SubResource("Animation_im24l"),
 &"idle_down": SubResource("Animation_46p2o"),
 &"idle_left": SubResource("Animation_6326o"),
 &"idle_right": SubResource("Animation_57eei"),
@@ -529,10 +683,10 @@ tracks/2/path = NodePath(".:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yuirh"]
@@ -547,6 +701,7 @@ collision_layer = 256
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_6326o")
+damage = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
@@ -567,14 +722,14 @@ autoplay = "idle_down"
 
 [node name="HitBox" parent="." instance=ExtResource("4_57eei")]
 
-[node name="HitCollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_u2l51")
 
 [node name="HurtBox" parent="." instance=ExtResource("5_u2l51")]
 
-[node name="HurtCollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2ui2u")
@@ -602,24 +757,16 @@ script = ExtResource("7_bkm6f")
 [node name="Stun" type="LimboState" parent="LimboHSM"]
 script = ExtResource("8_5ctnu")
 
-[node name="Plant11" parent="." instance=ExtResource("9_kag0e")]
-position = Vector2(264, 259)
+[node name="Destroy" type="LimboState" parent="LimboHSM"]
+script = ExtResource("9_kag0e")
 
-[node name="Plant12" parent="." instance=ExtResource("9_kag0e")]
-position = Vector2(280, 259)
-
-[node name="Plant13" parent="." instance=ExtResource("9_kag0e")]
-position = Vector2(296, 259)
-
-[node name="Plant14" parent="." instance=ExtResource("9_kag0e")]
-position = Vector2(328, 259)
-
-[node name="Plant15" parent="." instance=ExtResource("9_kag0e")]
-position = Vector2(312, 259)
-
+[connection signal="enemy_damaged" from="." to="LimboHSM/Stun" method="_on_slime_enemy_damaged"]
+[connection signal="enemy_destroyed" from="." to="LimboHSM/Destroy" method="_on_slime_enemy_destroyed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="LimboHSM/Stun" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="LimboHSM/Destroy" method="_on_animation_player_animation_finished"]
+[connection signal="damaged" from="HitBox" to="." method="_on_hit_box_damaged"]
 [connection signal="damaged" from="HitBox" to="LimboHSM/Idle" method="_on_hit_box_damaged"]
 [connection signal="damaged" from="HitBox" to="LimboHSM/Walk" method="_on_hit_box_damaged"]
-[connection signal="damaged" from="HitBox" to="LimboHSM/Stun" method="_on_hit_box_damaged"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 
 [editable path="HitBox"]

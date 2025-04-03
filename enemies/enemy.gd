@@ -28,7 +28,7 @@ signal enemy_destroyed(hurt_box: HurtBox)
 @onready var idle_state: LimboState = $LimboHSM/Idle
 @onready var move_state: LimboState = $LimboHSM/Walk
 @onready var stun_state: LimboState = $LimboHSM/Stun
-#@onready var destroy_state: LimboState = $LimboHSM/Destroy
+@onready var destroy_state: LimboState = $LimboHSM/Destroy
 
 var cardinal_direction: Vector2 = Vector2.DOWN
 var direction: Vector2 = Vector2.ZERO
