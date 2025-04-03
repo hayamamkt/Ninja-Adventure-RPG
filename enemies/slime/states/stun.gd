@@ -8,6 +8,7 @@ func _enter() -> void:
 	_enemy.invulnerable = true
 	_animation_finished = false
 	_dir = _enemy.global_position.direction_to(_damage_pos)
+	_enemy.change_dir(_dir)
 	_enemy.velocity = _dir * -_enemy.knockback_speed
 	_enemy.apply_animation(STUN)
 
