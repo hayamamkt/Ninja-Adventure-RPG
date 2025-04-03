@@ -11,8 +11,8 @@ func _ready() -> void:
 func _init_state_machine() -> void:
 	hsm.add_transition(hsm.ANYSTATE, move_state, SlimeState.TO_WALK)
 	hsm.add_transition(hsm.ANYSTATE, idle_state, SlimeState.TO_IDLE)
-	#hsm.add_transition(idle_state, stun_state, SlimeState.TO_STUN)
-	#hsm.add_transition(move_state, stun_state, SlimeState.TO_STUN)
+	hsm.add_transition(idle_state, stun_state, SlimeState.TO_STUN)
+	hsm.add_transition(move_state, stun_state, SlimeState.TO_STUN)
 	#hsm.add_transition(hsm.ANYSTATE, destroy_state, SlimeState.TO_DESTROY)
 
 	hsm.initial_state = idle_state

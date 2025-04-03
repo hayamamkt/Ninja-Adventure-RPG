@@ -13,6 +13,6 @@ func _update(delta: float) -> void:
 	if _time <= 0:
 		dispatch(TO_WALK)
 
-
 func _on_hit_box_damaged(_hurt_box: HurtBox) -> void:
+	print_debug("idle -> stun")
 	dispatch(TO_STUN)
