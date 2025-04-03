@@ -1,7 +1,7 @@
 extends Node
 
 signal tilemap_bounds_changed(bounds: Array[Vector2])
-signal level_load_started
+#signal level_load_started
 signal level_loaded
 
 var current_tilemap_bounds: Array[Vector2]
@@ -17,9 +17,9 @@ func change_tilemap_bounds(bounds: Array[Vector2]):
 	tilemap_bounds_changed.emit(bounds)
 
 func load_new_level(
-	level_path: String,
-	transition: String = "",
-	offset: Vector2 = Vector2.ZERO
+	_level_path: String,
+	_transition: String = "",
+	_offset: Vector2 = Vector2.ZERO
 ) -> void:
 	get_tree().paused = true
 	#target_transition = transition

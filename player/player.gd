@@ -3,6 +3,8 @@ class_name Player
 
 const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT,  Vector2.UP]
 
+signal dir_changed(new_dir: Vector2)
+
 @export_category("Setting")
 @export var hp := 6
 @export var max_hp := 6
@@ -73,7 +75,7 @@ func toggle_weapon(value: bool) -> void:
 	weapon.collision_mask = 256 if value else 0
 
 func apply_animation(state: String) -> void:
-	animation_player.play(state + "_" + apply_dir())
+	animation_player.play(state + "_" + apply_dir_name())
 
 func apply_movement(_delta: float) -> void:
 	velocity = direction * move_speed
@@ -84,13 +86,13 @@ func apply_decelerate(delta: float) -> void:
 func apply_attack() -> void:
 	apply_animation("attack")
 	if weapon == null: return
-	weapon_animation_player.play(apply_dir())
+	weapon_animation_player.play(apply_dir_name())
 	audio.stream = attack_sound
 	audio.pitch_scale = randf_range(0.9, 1.1)
 	audio.play()
 
 
-func apply_dir() -> String:
+func apply_dir_name() -> String:
 	if cardinal_direction == Vector2.UP: return "up"
 	if cardinal_direction == Vector2.DOWN: return "down"
 	if cardinal_direction == Vector2.LEFT: return "left"
@@ -106,7 +108,11 @@ func change_dir() -> bool:
 	if new_dir == cardinal_direction: return false
 
 	cardinal_direction = new_dir
-	#dir_changed.emit(new_dir)
-	#sprite_2d.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
+	dir_changed.emit(new_dir)
 
 	return true
+
+
+func _on_hit_box_damaged(hurt_box: HurtBox) -> void:
+	print_debug(hurt_box)
+	pass # Replace with function body.
