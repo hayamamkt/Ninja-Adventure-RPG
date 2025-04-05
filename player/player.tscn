@@ -422,9 +422,9 @@ _data = {
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("weapon")]
 collision_mask = 16
 script = ExtResource("1_rkbax")
+weapon = NodePath("Weapons/Sword2")
 move_speed = 100.0
 attack_sound = ExtResource("2_rgyib")
-weapon = NodePath("Weapons/Sword2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -514,63 +514,17 @@ libraries = {
 }
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-script = null
 
 [node name="Idle" type="LimboState" parent="LimboHSM"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
 script = ExtResource("3_g1dw6")
 
 [node name="Walk" type="LimboState" parent="LimboHSM"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
 script = ExtResource("4_yw30f")
 
 [node name="Attack" type="LimboState" parent="LimboHSM"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
 script = ExtResource("6_g6k8r")
 
 [node name="Stun" type="LimboState" parent="LimboHSM"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
 script = ExtResource("27_uw77l")
 
 [node name="DeathSrite2D" type="Sprite2D" parent="."]
@@ -584,6 +538,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_yuirh")
 }
 
+[connection signal="player_damaged" from="." to="LimboHSM/Stun" method="_on_player_player_damaged"]
 [connection signal="damaged" from="HitBox" to="." method="_on_hit_box_damaged"]
 [connection signal="animation_finished" from="AnimationPlayer" to="LimboHSM/Attack" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="LimboHSM/Stun" method="_on_animation_player_animation_finished"]

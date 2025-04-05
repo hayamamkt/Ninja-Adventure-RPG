@@ -7,8 +7,8 @@ signal dir_changed(new_dir: Vector2)
 signal player_damaged( hurt_box: HurtBox )
 
 @export_category("Setting")
-@export var hp := 6
-@export var max_hp := 6
+@export var hp := 12
+@export var max_hp := 12
 @export var invulnerable_duration := 1.0
 @export var knockback_speed := 1000.0
 @export var weapon: Area2D
@@ -118,6 +118,21 @@ func change_dir() -> bool:
 	return true
 
 
+
+func update_hp( delta : int ) -> void:
+	hp = clampi( hp + delta, 0, max_hp )
+	Hud.update_hp( hp, max_hp )
+
+func make_invulnerable( _duration : float = 1.0 ) -> void:
+	invulnerable = true
+	hit_box.monitoring = false
+
+	await get_tree().create_timer( _duration ).timeout
+
+	invulnerable = false
+	hit_box.monitoring = true
+
+
 func _on_hit_box_damaged(hurt_box: HurtBox) -> void:
 	print("hp=", hp)
 	if invulnerable:
@@ -137,16 +152,3 @@ func _on_hit_box_damaged(hurt_box: HurtBox) -> void:
 	else:
 		update_hp(max_hp)
 		print_debug("DEAD!!!!!!")
-
-func update_hp( delta : int ) -> void:
-	hp = clampi( hp + delta, 0, max_hp )
-	#PlayerHud.update_hp( hp, max_hp )
-
-func make_invulnerable( _duration : float = 1.0 ) -> void:
-	invulnerable = true
-	hit_box.monitoring = false
-
-	await get_tree().create_timer( _duration ).timeout
-
-	invulnerable = false
-	hit_box.monitoring = true

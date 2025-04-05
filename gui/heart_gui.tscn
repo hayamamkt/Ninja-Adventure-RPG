@@ -3,9 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://duefse47t71ug" path="res://gui/assets/heart.png" id="1_2fhej"]
 [ext_resource type="Script" uid="uid://b3dn5un3i2dp0" path="res://gui/heart_gui.gd" id="1_h42a4"]
 
-[node name="HeartGUI" type="Panel"]
+[node name="HeartGUI" type="Control"]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 0
 offset_right = 16.0
 offset_bottom = 16.0
 script = ExtResource("1_h42a4")
