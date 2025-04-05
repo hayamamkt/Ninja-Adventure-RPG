@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Version" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
