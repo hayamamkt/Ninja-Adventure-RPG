@@ -15,14 +15,26 @@ run/main_scene="uid://dc21web7p7fw6"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+LevelManager="*res://globals/level_manager.gd"
+PlayerManager="*res://globals/player_manager.gd"
+
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
 window/size/window_width_override=1920
 window/size/window_height_override=1080
-window/stretch/mode="canvas_items"
-window/stretch/scale=2.0
+window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://enemies/": "orange",
+"res://gui/": "yellow",
+"res://player/": "green"
+}
 
 [input]
 

@@ -5,14 +5,15 @@ var weapon: Area2D
 func _ready() -> void:
 	if get_children().is_empty(): return
 
-	weapon = get_children()[0]
+	weapon = get_children()[0].get_child(0)
+	weapon.monitorable = false
 
 func enable() -> void:
 	if not weapon: return
 	visible = true
-	weapon.enable()
+	weapon.monitoring = true
 
 func disable() -> void:
 	if not weapon: return
 	visible = false
-	weapon.disable()
+	weapon.monitoring = false

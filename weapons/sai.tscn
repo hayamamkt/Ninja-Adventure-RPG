@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmvsneroachop"]
+
+[ext_resource type="PackedScene" uid="uid://bj4noqfwgrjxl" path="res://weapons/base_weapon.tscn" id="1_fldf2"]
+[ext_resource type="Texture2D" uid="uid://ch33hklvpo1in" path="res://weapons/assets/Sai/SpriteInHand.png" id="2_oxd2b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03u2o"]
+size = Vector2(4, 6)
+
+[node name="Sai" instance=ExtResource("1_fldf2")]
+collision_mask = 256
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, 4)
+texture = ExtResource("2_oxd2b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_03u2o")

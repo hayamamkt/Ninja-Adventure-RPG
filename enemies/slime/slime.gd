@@ -1,55 +1,23 @@
-extends CharacterBody2D
+extends Enemy
+class_name Slime
 
-@export var speed := 5.0
-@export var limit := 0.5
-@export var end_point: Marker2D
-
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-
-var start_pos
-var end_pos
-var is_dead := false
+@export_category("Setting")
+@export var wander_speed := 20.0
 
 func _ready() -> void:
-	start_pos = position
-	end_pos = end_point.global_position
+	player = PlayerManager.player
+	_init_state_machine()
 
-func _physics_process(_delta: float) -> void:
-	if is_dead: return
+func _init_state_machine() -> void:
+	hsm.add_transition(hsm.ANYSTATE, move_state, SlimeState.TO_WALK)
+	hsm.add_transition(hsm.ANYSTATE, idle_state, SlimeState.TO_IDLE)
+	hsm.add_transition(idle_state, stun_state, SlimeState.TO_STUN)
+	hsm.add_transition(move_state, stun_state, SlimeState.TO_STUN)
+	hsm.add_transition(hsm.ANYSTATE, destroy_state, SlimeState.TO_DESTROY)
 
-	update_velocity()
-	move_and_slide()
-	update_animation()
+	hsm.initial_state = idle_state
+	hsm.initialize(self)
+	hsm.set_active(true)
 
-func update_animation() -> void:
-	if velocity.length() == 0:
-		if animation_player.is_playing():
-			animation_player.stop()
-	else:
-		var dir = "down"
-		if velocity.x < 0: dir = "left"
-		elif velocity.x > 0: dir = "right"
-		elif velocity.y < 0: dir = "up"
-
-		animation_player.play("move_" + dir)
-
-func change_direction() -> void:
-	var temp = end_pos
-	end_pos = start_pos
-	start_pos = temp
-
-func update_velocity() -> void:
-	var move_dir = (end_pos - position)
-	if move_dir.length() < limit:
-		change_direction()
-
-	velocity = move_dir.normalized() * speed
-
-
-func _on_hurt_box_area_entered(area: Area2D) -> void:
-	if area == $HitBox: return
-	print_debug(area)
-	is_dead = true
-	$DeathSrite2D/DeathAnimationPlayer.play("death")
-	await $DeathSrite2D/DeathAnimationPlayer.animation_finished
-	queue_free()
+func apply_movement(_delta: float) -> void:
+	velocity = direction * wander_speed
