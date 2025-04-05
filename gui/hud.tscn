@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdx5k0r5jntbe"]
+
+[ext_resource type="Script" uid="uid://cginbofrtx5tv" path="res://gui/hud.gd" id="1_350da"]
+[ext_resource type="Theme" uid="uid://ye5enk530pu7" path="res://gui/default_theme.tres" id="2_nejoa"]
+[ext_resource type="PackedScene" uid="uid://vv2gtlwatog3" path="res://gui/heart_gui.tscn" id="2_u7rvv"]
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_350da")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+theme = ExtResource("2_nejoa")
+theme_override_colors/font_color = Color(0.96, 0.96, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Ver 0.0.0.0000"
+vertical_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_direction = 3
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "LIFE"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HeartGUI" parent="Control/MarginContainer/VBoxContainer/HFlowContainer" instance=ExtResource("2_u7rvv")]
+layout_mode = 2
+
+[node name="HeartGUI2" parent="Control/MarginContainer/VBoxContainer/HFlowContainer" instance=ExtResource("2_u7rvv")]
+layout_mode = 2
+
+[node name="HeartGUI3" parent="Control/MarginContainer/VBoxContainer/HFlowContainer" instance=ExtResource("2_u7rvv")]
+layout_mode = 2
+
+[node name="HeartGUI4" parent="Control/MarginContainer/VBoxContainer/HFlowContainer" instance=ExtResource("2_u7rvv")]
+layout_mode = 2
