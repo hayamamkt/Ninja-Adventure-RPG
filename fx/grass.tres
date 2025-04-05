@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://bydmujk8jlrxt"]
+
+[ext_resource type="Texture2D" uid="uid://b0o2drukd7la8" path="res://general/assets/FX/Particle/Grass.png" id="1_a8ymn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycbtv"]
+atlas = ExtResource("1_a8ymn")
+region = Rect2(0, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbarj"]
+atlas = ExtResource("1_a8ymn")
+region = Rect2(12, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksluj"]
+atlas = ExtResource("1_a8ymn")
+region = Rect2(24, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h818y"]
+atlas = ExtResource("1_a8ymn")
+region = Rect2(36, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igpoa"]
+atlas = ExtResource("1_a8ymn")
+region = Rect2(48, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35gpq"]
+atlas = ExtResource("1_a8ymn")
+region = Rect2(60, 0, 12, 13)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycbtv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbarj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksluj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h818y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igpoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35gpq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bllnlnwclsdci"]
+
+[ext_resource type="Texture2D" uid="uid://c8tcf5v5j4p05" path="res://gui/assets/nine_path_panel_interior.png" id="1_5nm7y"]
+[ext_resource type="Script" uid="uid://dhvmm5tf34qs2" path="res://gui/slot_gui.gd" id="1_adqb6"]
+[ext_resource type="FontFile" uid="uid://cdk1idkbfikmd" path="res://gui/assets/fonts/NormalFont.ttf" id="3_v8xyc"]
+
+[node name="SlotGUI" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(21, 21)
+offset_right = 21.0
+offset_bottom = 21.0
+script = ExtResource("1_adqb6")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_5nm7y")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 21.0
+offset_bottom = 21.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Item" type="Sprite2D" parent="CenterContainer/Panel"]
+
+[node name="Label" type="Label" parent="CenterContainer/Panel"]
+custom_minimum_size = Vector2(11, 11)
+layout_mode = 0
+offset_right = 11.0
+offset_bottom = 11.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_v8xyc")
+theme_override_font_sizes/font_size = 8
+text = "99"
+horizontal_alignment = 2

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj4noqfwgrjxl"]
+
+[ext_resource type="PackedScene" uid="uid://d1vx3c34m0w1w" path="res://general/hurt_box.tscn" id="1_1ji47"]
+
+[node name="HurtBox" instance=ExtResource("1_1ji47")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]

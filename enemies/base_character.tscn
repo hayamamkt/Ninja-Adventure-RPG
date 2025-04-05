@@ -1,0 +1,134 @@
+[gd_scene load_steps=9 format=3 uid="uid://d4cycb4wv32yu"]
+
+[ext_resource type="Texture2D" uid="uid://dijdbw3dpx2l7" path="res://general/assets/Smoke/SpriteSheet.png" id="1_rc7bj"]
+[ext_resource type="PackedScene" uid="uid://ckga241t5ewdp" path="res://general/hit_box.tscn" id="2_iwgs4"]
+[ext_resource type="PackedScene" uid="uid://d1vx3c34m0w1w" path="res://general/hurt_box.tscn" id="3_xsfev"]
+[ext_resource type="AnimationLibrary" uid="uid://bd011atdo5vsp" path="res://general/4way_animation.res" id="4_iwgs4"]
+
+[sub_resource type="Animation" id="Animation_knvw0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kag0e"]
+resource_name = "death"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yuirh"]
+_data = {
+&"RESET": SubResource("Animation_knvw0"),
+&"death": SubResource("Animation_kag0e")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xsfev"]
+
+[node name="BaseCharacter" type="CharacterBody2D"]
+collision_layer = 256
+collision_mask = 16
+motion_mode = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+animation = &""
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="DeathSrite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -5)
+texture = ExtResource("1_rc7bj")
+hframes = 6
+
+[node name="DeathAnimationPlayer" type="AnimationPlayer" parent="DeathSrite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_yuirh")
+}
+
+[node name="HitBox" parent="." instance=ExtResource("2_iwgs4")]
+
+[node name="HurtBox" parent="." instance=ExtResource("3_xsfev")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xsfev"),
+&"4way_animation": ExtResource("4_iwgs4")
+}
+
+[node name="LimboHSM" type="LimboHSM" parent="."]
+
+[node name="Idle" type="LimboState" parent="LimboHSM"]
+
+[node name="Walk" type="LimboState" parent="LimboHSM"]
+
+[node name="Stun" type="LimboState" parent="LimboHSM"]
+
+[node name="Destroy" type="LimboState" parent="LimboHSM"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://618a2fkt08n5"]
+
+[ext_resource type="Script" uid="uid://b2p20jq5k6pw0" path="res://props/plant.gd" id="1_3ewsl"]
+[ext_resource type="Texture2D" uid="uid://df221jp3f5ryc" path="res://tiles/TilesetNature.png" id="1_al2tk"]
+[ext_resource type="PackedScene" uid="uid://ckga241t5ewdp" path="res://general/hit_box.tscn" id="3_3ewsl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hawr"]
+size = Vector2(16, 13)
+
+[node name="Plant" type="Node2D"]
+z_as_relative = false
+script = ExtResource("1_3ewsl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+texture = ExtResource("1_al2tk")
+region_enabled = true
+region_rect = Rect2(64, 177, 16, 16)
+
+[node name="HitBox" parent="." instance=ExtResource("3_3ewsl")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_3hawr")
+
+[connection signal="damaged" from="HitBox" to="." method="_on_hit_box_damaged"]

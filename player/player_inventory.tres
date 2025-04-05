@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=23 format=3 uid="uid://2bgp63drw15n"]
+
+[ext_resource type="Script" uid="uid://dwj0qd8yjj6oy" path="res://inventory/inventory_slot.gd" id="2_ja0dw"]
+[ext_resource type="Script" uid="uid://b1g0b2lgkxrya" path="res://inventory/inventory.gd" id="4_5dyb5"]
+
+[sub_resource type="Resource" id="Resource_ja0dw"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_ep336"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_q1hnr"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_x05wf"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_65hft"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_5dyb5"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_s4ccx"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_vvr1h"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_60utp"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_towno"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_ghfo5"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_la3qd"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_a631d"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_3ib8q"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_nots1"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_pxiqp"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_gv76d"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_1p5ry"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_vcef7"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[sub_resource type="Resource" id="Resource_iqp4g"]
+script = ExtResource("2_ja0dw")
+amount = 0
+metadata/_custom_type_script = "uid://dwj0qd8yjj6oy"
+
+[resource]
+script = ExtResource("4_5dyb5")
+slots = Array[ExtResource("2_ja0dw")]([SubResource("Resource_ja0dw"), SubResource("Resource_ep336"), SubResource("Resource_q1hnr"), SubResource("Resource_x05wf"), SubResource("Resource_65hft"), SubResource("Resource_5dyb5"), SubResource("Resource_s4ccx"), SubResource("Resource_vvr1h"), SubResource("Resource_60utp"), SubResource("Resource_towno"), SubResource("Resource_ghfo5"), SubResource("Resource_la3qd"), SubResource("Resource_a631d"), SubResource("Resource_3ib8q"), SubResource("Resource_nots1"), SubResource("Resource_pxiqp"), SubResource("Resource_gv76d"), SubResource("Resource_1p5ry"), SubResource("Resource_vcef7"), SubResource("Resource_iqp4g")])
+metadata/_custom_type_script = "uid://b1g0b2lgkxrya"
