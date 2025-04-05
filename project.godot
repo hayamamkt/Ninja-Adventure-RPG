@@ -30,6 +30,8 @@ window/stretch/mode="viewport"
 [file_customization]
 
 folder_colors={
+"res://enemies/": "orange",
+"res://gui/": "yellow",
 "res://player/": "green"
 }
 

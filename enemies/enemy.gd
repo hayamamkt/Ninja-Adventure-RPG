@@ -39,7 +39,8 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func apply_animation(state: String) -> void:
-	animation_player.play(state + "_" + apply_dir_name())
+	var s = "4way_animation/" + state
+	animation_player.play(s + "_" + apply_dir_name())
 
 func apply_rand_dir() -> void:
 	var rnd = randi_range(0, 3)

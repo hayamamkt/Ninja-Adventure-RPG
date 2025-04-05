@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dijdbw3dpx2l7" path="res://general/assets/Smoke/SpriteSheet.png" id="1_rc7bj"]
 [ext_resource type="PackedScene" uid="uid://ckga241t5ewdp" path="res://general/hit_box.tscn" id="2_iwgs4"]
 [ext_resource type="PackedScene" uid="uid://d1vx3c34m0w1w" path="res://general/hurt_box.tscn" id="3_xsfev"]
-[ext_resource type="AnimationLibrary" uid="uid://bd011atdo5vsp" path="res://4way_animation.res" id="4_iwgs4"]
+[ext_resource type="AnimationLibrary" uid="uid://bd011atdo5vsp" path="res://general/4way_animation.res" id="4_iwgs4"]
 
 [sub_resource type="Animation" id="Animation_knvw0"]
 length = 0.001

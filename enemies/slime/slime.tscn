@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://twsg4oxwv31t" path="res://enemies/slime/slime.gd" id="1_6326o"]
 [ext_resource type="SpriteFrames" uid="uid://i8du0x5kta08" path="res://enemies/slime/slime.tres" id="2_j284o"]
-[ext_resource type="AnimationLibrary" uid="uid://bd011atdo5vsp" path="res://4way_animation.res" id="3_knvw0"]
+[ext_resource type="AnimationLibrary" uid="uid://bd011atdo5vsp" path="res://general/4way_animation.res" id="3_knvw0"]
 [ext_resource type="Texture2D" uid="uid://dijdbw3dpx2l7" path="res://general/assets/Smoke/SpriteSheet.png" id="4_2ui2u"]
 [ext_resource type="PackedScene" uid="uid://ckga241t5ewdp" path="res://general/hit_box.tscn" id="4_57eei"]
 [ext_resource type="PackedScene" uid="uid://d1vx3c34m0w1w" path="res://general/hurt_box.tscn" id="5_u2l51"]
@@ -114,12 +114,14 @@ collision_layer = 256
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_6326o")
+wander_speed = 10.0
+hp = 2
 damage = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = ExtResource("2_j284o")
-animation = &"idle_down"
+animation = &"idle_left"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -129,7 +131,7 @@ shape = SubResource("CapsuleShape2D_j284o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": ExtResource("3_knvw0")
+&"4way_animation": ExtResource("3_knvw0")
 }
 autoplay = "idle_down"
 

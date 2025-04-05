@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://dad6y6pgs1mpq"]
+
+[ext_resource type="PackedScene" uid="uid://d4cycb4wv32yu" path="res://enemies/base_character.tscn" id="1_qey6h"]
+[ext_resource type="SpriteFrames" uid="uid://i8du0x5kta08" path="res://enemies/slime/slime.tres" id="2_0cpnn"]
+[ext_resource type="Script" uid="uid://twsg4oxwv31t" path="res://enemies/slime/slime.gd" id="2_xu3cy"]
+[ext_resource type="Script" uid="uid://bdgedl84wswun" path="res://enemies/slime/states/idle.gd" id="4_mvhxp"]
+[ext_resource type="Script" uid="uid://dm6e8kenwpta4" path="res://enemies/slime/states/walk.gd" id="5_fa5dq"]
+[ext_resource type="Script" uid="uid://31c76j3m7y4q" path="res://enemies/slime/states/stun.gd" id="6_5xf2l"]
+[ext_resource type="Script" uid="uid://5rcemuno8jjy" path="res://enemies/slime/states/destroy.gd" id="7_bdjcr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0cpnn"]
+radius = 3.0
+height = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xu3cy"]
+radius = 4.0
+height = 14.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0wln8"]
+radius = 4.0
+height = 14.0
+
+[node name="TestSlime" instance=ExtResource("1_qey6h")]
+script = ExtResource("2_xu3cy")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+modulate = Color(0, 1, 0.183333, 1)
+position = Vector2(0, -6)
+sprite_frames = ExtResource("2_0cpnn")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0cpnn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xu3cy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0wln8")
+debug_color = Color(0.99, 0, 0.3135, 0.0823529)
+
+[node name="Idle" parent="LimboHSM" index="0"]
+script = ExtResource("4_mvhxp")
+
+[node name="Walk" parent="LimboHSM" index="1"]
+script = ExtResource("5_fa5dq")
+
+[node name="Stun" parent="LimboHSM" index="2"]
+script = ExtResource("6_5xf2l")
+
+[node name="Destroy" parent="LimboHSM" index="3"]
+script = ExtResource("7_bdjcr")
+
+[connection signal="damaged" from="HitBox" to="LimboHSM/Idle" method="_on_hit_box_damaged"]
+[connection signal="damaged" from="HitBox" to="LimboHSM/Walk" method="_on_hit_box_damaged"]
