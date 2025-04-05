@@ -2,7 +2,7 @@ extends LimboState
 class_name PlayerState
 
 const IDLE = "idle"
-const WALK = "walk"
+const WALK = "move"
 const STUN = "stun"
 const ATTACK = "attack"
 const TO_IDLE = "to_idle"
