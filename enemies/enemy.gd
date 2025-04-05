@@ -24,6 +24,9 @@ signal enemy_destroyed(hurt_box: HurtBox)
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hit_box: HitBox = $HitBox
+@onready var efx_animation_player: AnimationPlayer = $EfxAnimationPlayer
+@onready var death_animation_player: AnimationPlayer = $DeathSrite2D/DeathAnimationPlayer
+
 @onready var hsm: LimboHSM = $LimboHSM
 @onready var idle_state: LimboState = $LimboHSM/Idle
 @onready var move_state: LimboState = $LimboHSM/Walk
@@ -39,7 +42,7 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func apply_animation(state: String) -> void:
-	var s = "4way_animation/" + state
+	var s = "4way/" + state
 	animation_player.play(s + "_" + apply_dir_name())
 
 func apply_rand_dir() -> void:

@@ -1,8 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bg4fjvkwyp6vl"]
+[gd_scene load_steps=21 format=3 uid="uid://bg4fjvkwyp6vl"]
 
 [ext_resource type="Script" uid="uid://twsg4oxwv31t" path="res://enemies/slime/slime.gd" id="1_6326o"]
 [ext_resource type="SpriteFrames" uid="uid://i8du0x5kta08" path="res://enemies/slime/slime.tres" id="2_j284o"]
-[ext_resource type="AnimationLibrary" uid="uid://bd011atdo5vsp" path="res://general/4way_animation.res" id="3_knvw0"]
+[ext_resource type="AnimationLibrary" uid="uid://dyb8nrss7ild2" path="res://general/4way.res" id="3_yuirh"]
 [ext_resource type="Texture2D" uid="uid://dijdbw3dpx2l7" path="res://general/assets/Smoke/SpriteSheet.png" id="4_2ui2u"]
 [ext_resource type="PackedScene" uid="uid://ckga241t5ewdp" path="res://general/hit_box.tscn" id="4_57eei"]
 [ext_resource type="PackedScene" uid="uid://d1vx3c34m0w1w" path="res://general/hurt_box.tscn" id="5_u2l51"]
@@ -10,10 +10,64 @@
 [ext_resource type="Script" uid="uid://dm6e8kenwpta4" path="res://enemies/slime/states/walk.gd" id="7_bkm6f"]
 [ext_resource type="Script" uid="uid://31c76j3m7y4q" path="res://enemies/slime/states/stun.gd" id="8_5ctnu"]
 [ext_resource type="Script" uid="uid://5rcemuno8jjy" path="res://enemies/slime/states/destroy.gd" id="9_kag0e"]
+[ext_resource type="AudioStream" uid="uid://dpqyopy2fufwm" path="res://general/assets/Sounds/Game/Hit.wav" id="11_yuirh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j284o"]
 radius = 2.0
 height = 14.0
+
+[sub_resource type="Animation" id="Animation_7pqkx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_knn7v"]
+resource_name = "damaged"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.24, 0.24, 1), Color(1, 1, 1, 0), Color(1, 0.239216, 0.239216, 1), Color(1, 1, 1, 0), Color(1, 0.239216, 0.239216, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio/AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_yuirh")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uw77l"]
+_data = {
+&"RESET": SubResource("Animation_7pqkx"),
+&"damaged": SubResource("Animation_knn7v")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2l51"]
 radius = 4.0
@@ -119,7 +173,6 @@ hp = 2
 damage = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(1, 0.03, 0.03, 0.576471)
 position = Vector2(0, -8)
 sprite_frames = ExtResource("2_j284o")
 animation = &"idle_down"
@@ -132,9 +185,14 @@ shape = SubResource("CapsuleShape2D_j284o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"4way_animation": ExtResource("3_knvw0")
+&"4way": ExtResource("3_yuirh")
 }
 autoplay = "idle_down"
+
+[node name="EfxAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uw77l")
+}
 
 [node name="HitBox" parent="." instance=ExtResource("4_57eei")]
 
@@ -175,6 +233,10 @@ script = ExtResource("8_5ctnu")
 
 [node name="Destroy" type="LimboState" parent="LimboHSM"]
 script = ExtResource("9_kag0e")
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
 
 [connection signal="enemy_damaged" from="." to="LimboHSM/Stun" method="_on_slime_enemy_damaged"]
 [connection signal="enemy_destroyed" from="." to="LimboHSM/Destroy" method="_on_slime_enemy_destroyed"]

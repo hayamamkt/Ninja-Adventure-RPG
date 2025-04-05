@@ -10,7 +10,7 @@ signal player_damaged( hurt_box: HurtBox )
 @export var hp := 6
 @export var max_hp := 6
 @export var invulnerable_duration := 1.0
-@export var knockback_speed := 500.0
+@export var knockback_speed := 1000.0
 @export var weapon: Area2D
 
 @export_category("Movement")
@@ -79,7 +79,7 @@ func toggle_weapon(value: bool) -> void:
 	weapon.collision_mask = 256 if value else 0
 
 func apply_animation(state: String) -> void:
-	var s = "4way_animation/" + state
+	var s = "4way/" + state
 	animation_player.play(s + "_" + apply_dir_name())
 
 func apply_movement(_delta: float) -> void:
