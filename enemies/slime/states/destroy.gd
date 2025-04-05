@@ -18,6 +18,7 @@ func _disable_hurt_box() -> void:
 	if hurt_box:
 		hurt_box.monitoring = false
 
+#region Signals Connects
 func _on_slime_enemy_destroyed(hunt_box: HurtBox) -> void:
 	_damage_position = hunt_box.global_position
 	dispatch(TO_DESTROY)
@@ -25,3 +26,4 @@ func _on_slime_enemy_destroyed(hunt_box: HurtBox) -> void:
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	if _enemy.hp <= 0:
 		_enemy.queue_free()
+#endregion
