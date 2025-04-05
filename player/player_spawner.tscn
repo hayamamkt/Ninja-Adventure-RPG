@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp407wyvt74xj"]
+
+[ext_resource type="Texture2D" uid="uid://cve64vlyf8fty" path="res://player/assets/SpriteSheet.png" id="1_5cupn"]
+[ext_resource type="Script" uid="uid://dqcabbsk2tgdw" path="res://player/player_spawner.gd" id="1_umg71"]
+
+[node name="PlayerSpawner" type="Node2D"]
+script = ExtResource("1_umg71")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.117049, 0.629902, 0.422556, 1)
+position = Vector2(0, -8)
+texture = ExtResource("1_5cupn")
+hframes = 4
+vframes = 7
