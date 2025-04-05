@@ -5,7 +5,7 @@ class_name Slime
 @export var wander_speed := 20.0
 
 func _ready() -> void:
-	#player = PlayerManager.player
+	player = PlayerManager.player
 	_init_state_machine()
 
 func _init_state_machine() -> void:
