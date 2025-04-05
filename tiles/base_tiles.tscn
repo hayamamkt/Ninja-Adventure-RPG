@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxxq3kacw13lt"]
+
+[ext_resource type="Script" uid="uid://dm6sxs4vt0578" path="res://tiles/level_tilemap.gd" id="1_e7bji"]
+
+[node name="BaseTiles" type="Node2D" node_paths=PackedStringArray("tilemap")]
+y_sort_enabled = true
+script = ExtResource("1_e7bji")
+tilemap = NodePath("Ground")
+
+[node name="Water" type="TileMapLayer" parent="."]
+z_index = -3
+
+[node name="Ground" type="TileMapLayer" parent="."]
+z_index = -3
+
+[node name="Foliage" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+
+[node name="Trees" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+
+[node name="Stonrs" type="TileMapLayer" parent="."]
+z_index = -3
+
+[node name="Houses" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+
+[node name="Props" type="TileMapLayer" parent="."]
+y_sort_enabled = true

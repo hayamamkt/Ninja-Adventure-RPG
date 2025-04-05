@@ -19,14 +19,14 @@ func _ready() -> void:
 			hearts.append(child)
 			child.visible = false
 
-func update_hp(hp: int, max_hp: int, type: HeartType = 2) -> void:
+func update_hp(hp: int, max_hp: int, type: HeartType = HeartType.QUARTER) -> void:
 	_update_max_hp(max_hp, type)
 	for i in max_hp:
 		_update_heart(i, hp, type)
 
 func _update_heart(index: int, hp: int, type: HeartType) -> void:
 	var q: float = _count_hearts(type)
-	var v = clampi(hp - index * q, 0, q)
+	var v = clampf(hp - index * q, 0, q)
 	hearts[index].value = v
 
 func _update_max_hp(max_hp: int, type: HeartType)-> void:

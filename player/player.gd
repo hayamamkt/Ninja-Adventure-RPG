@@ -37,7 +37,6 @@ var direction: Vector2 = Vector2.ZERO
 var movement_input: Vector2 = Vector2.ZERO
 var invulnerable := false
 
-
 func _ready() -> void:
 	PlayerManager.player = self
 	update_hp(max_hp)
@@ -116,8 +115,6 @@ func change_dir() -> bool:
 	dir_changed.emit(new_dir)
 
 	return true
-
-
 
 func update_hp( delta : int ) -> void:
 	hp = clampi( hp + delta, 0, max_hp )
