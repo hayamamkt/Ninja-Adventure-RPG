@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Ninja Adventure RPG"
-run/main_scene="uid://dc21web7p7fw6"
+run/main_scene="uid://c4voa8mipekov"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,8 @@ LevelManager="*res://globals/global_level_manager.gd"
 Hud="*res://gui/hud.tscn"
 SceneTransition="*res://globals/scene_transition.tscn"
 PlayerManager="*res://globals/global_player_manager.gd"
+PauseMenu="*res://globals/pause_menu.tscn"
+SaveManager="*res://globals/global_save_manager.gd"
 
 [display]
 
@@ -73,6 +75,11 @@ interact={
 inventory={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":73,"key_label":0,"unicode":105,"location":0,"echo":false,"script":null)
+]
+}
+pause={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 

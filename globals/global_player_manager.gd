@@ -24,6 +24,12 @@ func add_player_instance() -> void:
 	player = PLAYER.instantiate()
 	add_child( player )
 
+
+func set_health(hp: int, max_hp: int) -> void:
+	player.max_hp = max_hp
+	player.hp = hp if hp <= player.max_hp else player.max_hp
+	player.update_hp(0)
+
 func set_as_parent(node: Node2D):
 	if player.get_parent():
 		player.get_parent().remove_child(player)

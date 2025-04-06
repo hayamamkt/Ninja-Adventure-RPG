@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://b4jsoxrhedgpe"]
+[gd_scene load_steps=7 format=4 uid="uid://b4jsoxrhedgpe"]
 
 [ext_resource type="Script" uid="uid://qbpci61l44ja" path="res://general/level.gd" id="1_jw6hr"]
 [ext_resource type="PackedScene" uid="uid://bxxq3kacw13lt" path="res://tiles/base_tiles.tscn" id="2_iv85s"]
 [ext_resource type="TileSet" uid="uid://ci88b6gx3huoe" path="res://tiles/floor_tile_set.tres" id="3_sx28t"]
 [ext_resource type="PackedScene" uid="uid://cp407wyvt74xj" path="res://player/player_spawner.tscn" id="4_wqjwb"]
 [ext_resource type="PackedScene" uid="uid://b1xf84pa3jkuy" path="res://general/level_transition.tscn" id="5_iv85s"]
+[ext_resource type="PackedScene" uid="uid://bg4fjvkwyp6vl" path="res://enemies/slime/slime.tscn" id="6_sx28t"]
 
 [node name="Lv_01_02" type="Node2D"]
 script = ExtResource("1_jw6hr")
@@ -28,12 +29,15 @@ tile_set = ExtResource("3_sx28t")
 tile_map_data = PackedByteArray("AAAAAAAAAQAEAAIAAAD//wEAAQAEAAIAAAAAAAIAAQAEAAIAAAD//wMAAQAEAAIAAAAAAAQAAQAEAAIAAAD//wcAAQAEAAIAAAAAAAgAAQAEAAIAAAD//wkAAQAEAAIAAAABAA8AAQAEAAIAAAADAA8AAQAEAAIAAAAFAA8AAQAEAAIAAAAHAA8AAQAEAAIAAAAAAA4AAQAEAAIAAAAJAA8AAQAAAAIAAAALAA8AAQAAAAIAAAANAA8AAQAAAAIAAAAPAA8AAQAAAAIAAAARAA8AAQAAAAIAAAATAA8AAQAAAAIAAAAYAAoAAQAAAAIAAAAXAAkAAQAAAAIAAAAYAAAAAQAAAAIAAAAXAP//AQAAAAIAAAAVAP//AQAAAAIAAAATAP//AQAAAAIAAAASAAAAAQAAAAIAAAARAP//AQAAAAIAAAAPAP//AQAAAAIAAAANAP//AQAAAAIAAAALAP//AQAAAAIAAAAJAP//AQAAAAIAAAAHAP//AQAAAAIAAAAFAP//AQAEAAIAAAADAP//AQAEAAIAAAANAAMAAQAMAAIAAAAOAAQAAQAMAAIAAAAMAAQAAQAMAAIAAAANAAUAAQAMAAIAAAAVAAEAAQAQAAUAAAAWAAIAAQAQAAUAAAAVAAMAAQAQAAUAAAAYAAIAAQAQAAUAAAAZAAEAAQAQAAUAAAAYAAgAAQAQAAUAAAAXAAcAAQAQAAUAAAAWAAwAAQAFAAkAAAAXAAwAAQAEAAkAAAA=")
 tile_set = ExtResource("3_sx28t")
 
+[node name="Stonrs" parent="BaseTiles" index="5"]
+tile_set = ExtResource("3_sx28t")
+
 [node name="Props" parent="BaseTiles" index="7"]
 tile_map_data = PackedByteArray("AAAIAAUABQAEAAIAAAATAAUABQADAAIAAAAGAAMABQAAAAUAAAAGAAQABQAAAAYAAAARAAcABQAJAAEAAAAQAAcABQAJAAEAAAAPAAcABQAJAAEAAAAOAAcABQAJAAEAAAAMAAgABQAHAAEAAAAMAAkABQAHAAIAAAA=")
 tile_set = ExtResource("3_sx28t")
 
 [node name="PlayerSpawner" parent="." instance=ExtResource("4_wqjwb")]
-position = Vector2(70, 142)
+position = Vector2(31, 192)
 
 [node name="LT_A01_01-02" parent="." instance=ExtResource("5_iv85s")]
 position = Vector2(0, 192)
@@ -45,5 +49,29 @@ position = Vector2(384, 80)
 level = "uid://ch3gkbtsftkgv"
 target_transition_area = "LT_A01_02-03"
 side = 1
+
+[node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Slime" parent="Enemies" instance=ExtResource("6_sx28t")]
+position = Vector2(99, 145)
+
+[node name="Slime2" parent="Enemies" instance=ExtResource("6_sx28t")]
+position = Vector2(126, 168)
+
+[node name="Slime3" parent="Enemies" instance=ExtResource("6_sx28t")]
+position = Vector2(142, 129)
+
+[node name="Slime4" parent="Enemies" instance=ExtResource("6_sx28t")]
+position = Vector2(83, 113)
+
+[node name="Slime5" parent="Enemies" instance=ExtResource("6_sx28t")]
+position = Vector2(27, 108)
+
+[node name="Slime6" parent="Enemies" instance=ExtResource("6_sx28t")]
+position = Vector2(83, 80)
+
+[node name="Slime7" parent="Enemies" instance=ExtResource("6_sx28t")]
+position = Vector2(150, 48)
 
 [editable path="BaseTiles"]
