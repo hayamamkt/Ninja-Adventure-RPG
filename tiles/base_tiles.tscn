@@ -8,12 +8,15 @@ script = ExtResource("1_e7bji")
 tilemap = NodePath("Ground")
 
 [node name="Water" type="TileMapLayer" parent="."]
-z_index = -3
+z_index = -1
 
 [node name="Ground" type="TileMapLayer" parent="."]
 z_index = -3
 
-[node name="Foliage" type="TileMapLayer" parent="."]
+[node name="Path" type="TileMapLayer" parent="."]
+z_index = -1
+
+[node name="Foliage2" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 
 [node name="Trees" type="TileMapLayer" parent="."]
