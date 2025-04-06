@@ -22,6 +22,7 @@ Hud="*res://gui/hud.tscn"
 SceneTransition="*res://globals/scene_transition.tscn"
 PlayerManager="*res://globals/global_player_manager.gd"
 PauseMenu="*res://globals/pause_menu.tscn"
+SaveManager="*res://globals/global_save_manager.gd"
 
 [display]
 
