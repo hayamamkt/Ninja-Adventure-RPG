@@ -16,7 +16,7 @@ signal hidden
 @onready var button_load: Button = %LoadButton
 @onready var button_title: Button = %TitleButton
 
-#@onready var item_desc: Label = $Control/ItemDesc
+@onready var item_desc: Label = %ItemDesc
 #@onready var audio_stream_player: AudioStreamPlayer = $Control/AudioStreamPlayer
 
 
@@ -52,8 +52,8 @@ func _keep_data(type):
 	else:
 		SaveManager.load_game()
 
-#func update_item_desc(s: String) -> void:
-	#item_desc.text = s
+func update_item_desc(s: String) -> void:
+	item_desc.text = s
 
 
 func _on_save_button_pressed() -> void:
