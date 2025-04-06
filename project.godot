@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 LevelManager="*res://globals/global_level_manager.gd"
 Hud="*res://gui/hud.tscn"
-SceneTransition="*res://general/scene_transition.tscn"
+SceneTransition="*res://globals/scene_transition.tscn"
 PlayerManager="*res://globals/global_player_manager.gd"
 
 [display]
