@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="InvertoryItem" load_steps=3 format=3 uid="uid://crdywxmyyhvn4"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ys6sb3ufcr51"]
 
-[ext_resource type="Script" uid="uid://cl520340ra1o2" path="res://inventory/inventory_item.gd" id="1_0mo84"]
+[ext_resource type="Script" uid="uid://coli2jj1sc61u" path="res://items/item_data.gd" id="1_6iw74"]
 [ext_resource type="Texture2D" uid="uid://dnfn0nobc6ec6" path="res://items/assets/LifePot.png" id="2_dwk3f"]
 
 [resource]
-script = ExtResource("1_0mo84")
+script = ExtResource("1_6iw74")
 name = "Life Pot"
+desccriptio = ""
 texture = ExtResource("2_dwk3f")
-metadata/_custom_type_script = "uid://cl520340ra1o2"
+metadata/_custom_type_script = "uid://coli2jj1sc61u"

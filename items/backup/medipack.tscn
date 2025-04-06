@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://c2tpka11d1b7"]
 
-[ext_resource type="PackedScene" uid="uid://censsyq42v80w" path="res://items/collectaable_item.tscn" id="1_734jr"]
-[ext_resource type="Script" uid="uid://7hhbcfu7pl7p" path="res://items/medipack.gd" id="2_55j3d"]
+[ext_resource type="PackedScene" uid="uid://censsyq42v80w" path="res://items/backup/collectaable_item.tscn" id="1_734jr"]
+[ext_resource type="Script" uid="uid://7hhbcfu7pl7p" path="res://items/backup/medipack.gd" id="2_55j3d"]
 [ext_resource type="Texture2D" uid="uid://c6vliyqiawo0n" path="res://items/assets/Medipack.png" id="2_u32o3"]
-[ext_resource type="Resource" uid="uid://yrqgo6dqnjj7" path="res://items/medipacl.tres" id="3_55j3d"]
+[ext_resource type="Resource" uid="uid://yrqgo6dqnjj7" path="res://items/backup/medipacl.tres" id="3_55j3d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55j3d"]
 resource_local_to_scene = true
