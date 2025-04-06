@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Ninja Adventure RPG"
-run/main_scene="uid://dc21web7p7fw6"
+run/main_scene="uid://c4voa8mipekov"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
