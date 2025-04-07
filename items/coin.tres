@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c64wvkub6mcns"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://c64wvkub6mcns"]
 
 [ext_resource type="Script" uid="uid://coli2jj1sc61u" path="res://items/item_data.gd" id="1_2jpt2"]
+[ext_resource type="Script" uid="uid://cu38lvlwvdihr" path="res://items/item_effect.gd" id="1_fwc3l"]
 [ext_resource type="Texture2D" uid="uid://22bwmhxismdm" path="res://items/assets/Items/Treasure/Coin2.png" id="2_527q1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o3dv7"]
@@ -13,4 +14,5 @@ script = ExtResource("1_2jpt2")
 name = "Coin"
 desccriptio = "Coins"
 texture = SubResource("AtlasTexture_o3dv7")
+effects = Array[ExtResource("1_fwc3l")]([])
 metadata/_custom_type_script = "uid://coli2jj1sc61u"

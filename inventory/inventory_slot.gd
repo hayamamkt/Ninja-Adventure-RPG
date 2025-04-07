@@ -30,7 +30,7 @@ func _on_item_unfocused():
 func _on_pressed() -> void:
 	if slot_data == null or slot_data.item_data == null: return
 	var was_used = slot_data.item_data.use()
-	if was_used == false: return
+	if not was_used: return
 
 	slot_data.quantity -= 1
 	label.text = str(slot_data.quantity)

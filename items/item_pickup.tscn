@@ -46,6 +46,9 @@ _data = {
 }
 
 [node name="ItemPickup" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 16
+motion_mode = 1
 script = ExtResource("1_prgrc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

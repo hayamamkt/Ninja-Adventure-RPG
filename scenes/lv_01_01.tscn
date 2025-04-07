@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://c4voa8mipekov"]
+[gd_scene load_steps=10 format=4 uid="uid://c4voa8mipekov"]
 
 [ext_resource type="Script" uid="uid://qbpci61l44ja" path="res://general/level.gd" id="1_18ak5"]
 [ext_resource type="PackedScene" uid="uid://bxxq3kacw13lt" path="res://tiles/base_tiles.tscn" id="1_tb1tp"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1xf84pa3jkuy" path="res://general/level_transition.tscn" id="5_4pye0"]
 [ext_resource type="PackedScene" uid="uid://dmyn22grvtlvy" path="res://items/item_pickup.tscn" id="6_w144b"]
 [ext_resource type="Resource" uid="uid://c64wvkub6mcns" path="res://items/coin.tres" id="7_4ow7m"]
+[ext_resource type="Resource" uid="uid://ckpk4tyiuhf8j" path="res://items/medipack.tres" id="8_1t6jj"]
 [ext_resource type="Resource" uid="uid://ys6sb3ufcr51" path="res://items/lifepot.tres" id="8_4ow7m"]
 
 [node name="Lv0101" type="Node2D"]
@@ -42,6 +43,10 @@ position = Vector2(155, 48)
 item_data = ExtResource("7_4ow7m")
 
 [node name="ItemPickup3" parent="." instance=ExtResource("6_w144b")]
+position = Vector2(73, 77)
+item_data = ExtResource("8_1t6jj")
+
+[node name="ItemPickup6" parent="." instance=ExtResource("6_w144b")]
 position = Vector2(76, 48)
 item_data = ExtResource("8_4ow7m")
 

@@ -38,4 +38,3 @@ func _on_item_focus() -> void:
 		if get_child(i).has_focus():
 			focus_index = i
 			return
-	pass
