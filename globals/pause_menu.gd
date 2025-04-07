@@ -17,7 +17,7 @@ signal hidden
 @onready var button_title: Button = %TitleButton
 
 @onready var item_desc: Label = %ItemDesc
-#@onready var audio_stream_player: AudioStreamPlayer = $Control/AudioStreamPlayer
+@onready var audio_stream_player: AudioStreamPlayer = $Control/AudioStreamPlayer
 
 
 enum { HIDE, SHOW }
@@ -42,9 +42,9 @@ func toggle_pause_menu(type := HIDE) -> void:
 	if type == SHOW: shown.emit()
 	else: hidden.emit()
 
-#func play_audio(sound: AudioStream) -> void:
-	#audio_stream_player.stream = sound
-	#audio_stream_player.play()
+func play_audio(sound: AudioStream) -> void:
+	audio_stream_player.stream = sound
+	audio_stream_player.play()
 
 func _keep_data(type):
 	if type == SAVE:

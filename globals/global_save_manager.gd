@@ -26,7 +26,7 @@ func has_saving_file() -> bool:
 func save_game() -> void:
 	_update_player_data()
 	_update_scene_path()
-	#_update_item_data()
+	_update_item_data()
 	var file := FileAccess.open(filename, FileAccess.WRITE)
 	var svae_json = JSON.stringify(current_save)
 	file.store_line(svae_json)
@@ -51,7 +51,7 @@ func load_game() -> void:
 		current_save.player.hp,
 		current_save.player.max_hp
 	)
-	#PlayerManager.INVENTORY_DATA.parse_save_data(current_save.items)
+	PlayerManager.INVENTORY_DATA.parse_save_data(current_save.items)
 
 	await LevelManager.level_loaded
 
