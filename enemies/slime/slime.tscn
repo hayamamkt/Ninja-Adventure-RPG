@@ -163,7 +163,6 @@ _data = {
 }
 
 [node name="Slime" type="CharacterBody2D"]
-y_sort_enabled = true
 collision_layer = 256
 collision_mask = 16
 motion_mode = 1

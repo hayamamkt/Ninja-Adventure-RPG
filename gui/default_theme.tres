@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ye5enk530pu7"]
+
+[ext_resource type="FontFile" uid="uid://cdk1idkbfikmd" path="res://gui/assets/fonts/NormalFont.ttf" id="1_6cqq0"]
+
+[resource]
+default_font = ExtResource("1_6cqq0")
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 10
+Label/fonts/font = ExtResource("1_6cqq0")
