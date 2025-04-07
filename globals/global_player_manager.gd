@@ -1,7 +1,7 @@
 extends Node
 
 const PLAYER = preload("res://player/player.tscn")
-#const INVENTORY_DATA : InventoryData = preload("res://GUI/pause_menu/inventory/player_inventory.tres")
+const INVENTORY_DATA : InventoryData = preload("res://player/player_inventory.tres")
 
 #signal camera_shook( trauma : float )
 #signal interact_pressed

@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://cidlfj88gsmnw"]
+[gd_scene load_steps=8 format=3 uid="uid://cidlfj88gsmnw"]
 
 [ext_resource type="Script" uid="uid://r5b4nt6m1akr" path="res://globals/pause_menu.gd" id="1_mxau2"]
+[ext_resource type="Texture2D" uid="uid://c0sifpuh1ka3k" path="res://gui/assets/ui/Theme/Wip/ThemeBamboo/nine_path_panel.png" id="2_jrfxk"]
+[ext_resource type="Script" uid="uid://dxjtb8kbm3bl5" path="res://inventory/inventory_ui.gd" id="3_q1l4m"]
+[ext_resource type="PackedScene" uid="uid://c4u1eocxsqron" path="res://inventory/inventory_slot.tscn" id="3_q7pen"]
+[ext_resource type="Resource" uid="uid://cqt8qp0oumb7v" path="res://player/player_inventory.tres" id="4_lxy0p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7pen"]
+atlas = ExtResource("2_jrfxk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q1l4m"]
+texture = SubResource("AtlasTexture_q7pen")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -46,6 +60,7 @@ vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="SaveButton" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -63,6 +78,122 @@ text = "Load"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Back to Title"
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_q1l4m")
+
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+color = Color(0.05, 0.1, 0.0575, 1)
+
+[node name="GridContainer" type="GridContainer" parent="Control/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+columns = 5
+script = ExtResource("3_q1l4m")
+data = ExtResource("4_lxy0p")
+
+[node name="InventorySlot" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+script = null
+
+[node name="InventorySlot2" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot13" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot14" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot15" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot16" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot17" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot18" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot19" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot20" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot21" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot22" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot23" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot24" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot25" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot26" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot27" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot28" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot29" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="InventorySlot30" parent="Control/MarginContainer/VBoxContainer/PanelContainer/GridContainer" instance=ExtResource("3_q7pen")]
+layout_mode = 2
+
+[node name="ItemDesc" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Desc"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]

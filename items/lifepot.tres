@@ -1,10 +1,22 @@
-[gd_resource type="Resource" script_class="InvertoryItem" load_steps=3 format=3 uid="uid://crdywxmyyhvn4"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://ys6sb3ufcr51"]
 
-[ext_resource type="Script" uid="uid://cl520340ra1o2" path="res://inventory/inventory_item.gd" id="1_0mo84"]
+[ext_resource type="Script" uid="uid://coli2jj1sc61u" path="res://items/item_data.gd" id="1_6iw74"]
+[ext_resource type="Script" uid="uid://cu38lvlwvdihr" path="res://items/item_effect.gd" id="1_k3wq3"]
+[ext_resource type="AudioStream" uid="uid://8u6yt7ew0yl4" path="res://general/assets/Sounds/Game/PowerUp1.wav" id="2_5awgw"]
 [ext_resource type="Texture2D" uid="uid://dnfn0nobc6ec6" path="res://items/assets/LifePot.png" id="2_dwk3f"]
+[ext_resource type="Script" uid="uid://d2xds4crtqhfg" path="res://items/effects/item_effect_heal.gd" id="3_org16"]
+
+[sub_resource type="Resource" id="Resource_tfeoi"]
+script = ExtResource("3_org16")
+heal_amount = 2
+audio = ExtResource("2_5awgw")
+use_description = ""
+metadata/_custom_type_script = "uid://d2xds4crtqhfg"
 
 [resource]
-script = ExtResource("1_0mo84")
+script = ExtResource("1_6iw74")
 name = "Life Pot"
+desccriptio = "dasdasda as das das d"
 texture = ExtResource("2_dwk3f")
-metadata/_custom_type_script = "uid://cl520340ra1o2"
+effects = Array[ExtResource("1_k3wq3")]([SubResource("Resource_tfeoi")])
+metadata/_custom_type_script = "uid://coli2jj1sc61u"

@@ -2,7 +2,7 @@
 
 [ext_resource type="SpriteFrames" uid="uid://cg0kjlxfk4a5w" path="res://player/ninja_green_sprite_frames.tres" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://b4eqowyquqexw" path="res://player/player.gd" id="1_rkbax"]
-[ext_resource type="Texture2D" uid="uid://b6s7tn7v8adg5" path="res://player/Shadow.png" id="2_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://b6s7tn7v8adg5" path="res://general/assets/Shadow.png" id="2_g1dw6"]
 [ext_resource type="AudioStream" uid="uid://dsyotp2o1mqyk" path="res://general/assets/Sounds/Game/Sword2.wav" id="2_rgyib"]
 [ext_resource type="Script" uid="uid://bnn7g7girvaim" path="res://player/states/idle.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://ccqidcswhy6lw" path="res://player/player_camera.gd" id="3_g4c7l"]
